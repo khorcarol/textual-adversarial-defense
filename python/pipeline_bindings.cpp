@@ -3,6 +3,7 @@
 
 #include "core/pipeline.h"
 #include "modules/invisible.h"
+#include "modules/bidi.h"
 
 namespace py = pybind11;
 
@@ -14,6 +15,8 @@ PYBIND11_MODULE(_pipeline, m)
         .def(py::init<>())
         .def("add_invisible_sanitizer", [](Pipeline &p)
              { p.addModule(std::make_unique<InvisibleCharSanitizer>()); })
+        .def("add_bidi_sanitizer", [](Pipeline &p)
+            { p.addModule(std::make_unique<BidiCharSanitizer>()); })
         .def("sanitize", &Pipeline::sanitize);
 
     // Expose a convenience function that runs sanitize on a string
