@@ -52,3 +52,37 @@ void sanitize(std::vector<char32_t> &text)
     text = std::move(result);
 }
 
+int main()
+{
+    std::vector<char32_t> text = {
+        0x1F3F4,
+        0xE0000 + 'v', 0xE0000 + 'a', 0xE0000 + 'l', 0xE0000 + 'i', 0xE0000 + 'd',
+        0xE0000 + 's', 0xE0000 + 'e', 0xE0000 + 'q', 0xE0000 + '1',
+        0xE007F};
+    sanitize(text);
+    for (char32_t cp : text)
+    {
+        std::cout << std::hex << cp << " ";
+    }
+    std::cout << std::endl;
+
+    std::vector<char32_t> text2 = {
+        0x1F3F4,
+        0xE0000 + 'a', 0xE0000 + 'b', 0xE0000 + 'c',
+        0xE007F};
+    sanitize(text2);
+    for (char32_t cp : text2)
+    {
+        std::cout << std::hex << cp << " ";
+    }
+    std::cout << std::endl;
+
+    std::vector<char32_t> text3 = {
+        'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'};
+    sanitize(text3);
+    for (char32_t cp : text3)
+    {
+        std::cout << std::hex << cp << " ";
+    }
+    std::cout << std::endl;
+}
