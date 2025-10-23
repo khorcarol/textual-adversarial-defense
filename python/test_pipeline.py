@@ -28,9 +28,11 @@ def codepoints_ord(s: str):
 p = _pipeline.Pipeline()
 p.add_bidi_sanitizer()
 p.add_invisible_sanitizer()
+p.add_tag_sanitizer()
 bidi = "Hello \u202eWorld \u202c \u200b"
 
 print(codepoints_ord(bidi))
 print(bidi)
 print(codepoints_ord(p.sanitize(bidi))) 
 print(p.sanitize(bidi))
+

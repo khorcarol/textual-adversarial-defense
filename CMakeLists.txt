@@ -8,13 +8,47 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(DefensesLib
     modules/invisible.cpp
     modules/tags.cpp
+    modules/bidi.cpp
+    core/pipeline.cpp
+    utils.cpp
+)
+set_target_properties(DefensesLib PROPERTIES
+    POSITION_INDEPENDENT_CODE ON
 )
 
 # Add include directories
 target_include_directories(DefensesLib PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/modules
     ${CMAKE_CURRENT_SOURCE_DIR}/core
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+target_link_libraries(DefensesLib PUBLIC
+    fribidi
 )
 
 # Add the tests subdirectory
 add_subdirectory(tests)
+
+
+# Enable Python bindings
+include(FetchContent)
+
+FetchContent_Declare(
+    pybind11
+    GIT_REPOSITORY https://github.com/pybind/pybind11.git
+    GIT_TAG v2.11.1  # Use latest stable version
+)
+FetchContent_MakeAvailable(pybind11)
+
+pybind11_add_module(_pipeline
+    python/pipeline_bindings.cpp  
+)
+
+target_link_libraries(_pipeline PRIVATE
+    DefensesLib  
+)
+
+set_target_properties(_pipeline PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/python
+)
