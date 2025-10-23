@@ -31,6 +31,13 @@ void sanitize(std::vector<char32_t> &text)
                 int base_pos = base_positions.back();
                 base_positions.pop_back();
 
+                // Length check
+                if (i - base_pos - 1 > MAX_TAG_LENGTH){
+                    result.resize(base_pos);
+                    continue;
+                }
+
+                // Extract tag sequence
                 std::string tag_sequence;
                 for (int j = base_pos + 1; j < i; j++)
                 {
@@ -80,6 +87,21 @@ int main()
     std::vector<char32_t> text3 = {
         'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'};
     sanitize(text3);
+    for (char32_t cp : text3)
+    {
+        std::cout << std::hex << cp << " ";
+    }
+    std::cout << std::endl;
+
+    // test case for length of tag sequence > MAX_TAG_LENGTH
+    std::vector<char32_t> text4 = {
+        0x1F3F4};
+    for (int i = 0; i < 33; i++) // 33 > MAX_TAG_LENGTH
+    {
+        text4.push_back(0xE0000 + 'a'); // arbitrary tag characters 
+    }
+    text4.push_back(0xE007F);
+    sanitize(text4);
     for (char32_t cp : text3)
     {
         std::cout << std::hex << cp << " ";
