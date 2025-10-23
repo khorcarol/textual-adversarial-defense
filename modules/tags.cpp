@@ -33,7 +33,7 @@ void TagCharSanitizer::sanitize(std::vector<char32_t> &text)
                 int base_pos = base_positions.back();
                 base_positions.pop_back();
 
-                // Length check
+                // Exceeds valid tag length 
                 if (i - base_pos - 1 > MAX_TAG_LENGTH)
                 {
                     result.resize(base_pos);
@@ -48,6 +48,7 @@ void TagCharSanitizer::sanitize(std::vector<char32_t> &text)
                     tag_sequence += static_cast<char>(tag_cp - TAG_START);
                 }
 
+                // Not a valid sequence
                 if (valid_sequences.count(tag_sequence) == 0)
                 {
                     result.resize(base_pos);

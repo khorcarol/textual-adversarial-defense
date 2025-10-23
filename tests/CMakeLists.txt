@@ -7,15 +7,22 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# Add test for tags
-add_executable(test_tags
-    test_tags.cpp
-)
-
-target_link_libraries(test_tags PRIVATE
-    DefensesLib
-    GTest::gtest_main
-)
 
 include(GoogleTest)
-gtest_discover_tests(test_tags)
+set(TEST_TARGETS
+    test_invisible
+    test_tags
+)
+
+foreach(test_target ${TEST_TARGETS})
+    add_executable(${test_target}
+        ${test_target}.cpp
+    )
+    
+    target_link_libraries(${test_target} PRIVATE
+        DefensesLib
+        GTest::gtest_main
+    )
+    
+    gtest_discover_tests(${test_target})
+endforeach()

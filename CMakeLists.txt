@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Create a library for tags module
 add_library(DefensesLib
+    modules/invisible.cpp
     modules/tags.cpp
 )
 
