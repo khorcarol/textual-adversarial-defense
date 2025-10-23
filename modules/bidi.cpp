@@ -1,6 +1,7 @@
 #include "bidi.h"
 #include <fribidi/fribidi.h>
 #include <iostream>
+#include <unordered_set>
 
 void BidiCharSanitizer::sanitize(std::vector<char32_t> &text)
 {

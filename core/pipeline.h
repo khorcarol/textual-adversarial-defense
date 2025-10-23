@@ -1,5 +1,4 @@
-#ifndef PIPELINE_H
-#define PIPELINE_H
+#pragma once
 
 #include <vector>
 #include <memory>
@@ -15,4 +14,3 @@ public:
     std::string sanitize(const std::string &input);
 };
 
-#endif

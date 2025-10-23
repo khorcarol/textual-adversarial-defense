@@ -1,6 +1,6 @@
 #include "invisible.h"
 #include <algorithm>
-#include <vector>
+#include <unordered_set>
 
 static const std::unordered_set<char32_t> INVISIBLE_CPS = {
     0x200B, 0x200C, 0x200D, 0x200E, 0x200F,

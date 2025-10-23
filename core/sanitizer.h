@@ -1,6 +1,4 @@
-
-#ifndef SANITIZER_H
-#define SANITIZER_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -12,4 +10,3 @@ public:
     virtual ~Sanitizer() = default;
 };
 
-#endif // SANITIZER_H

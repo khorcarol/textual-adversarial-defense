@@ -1,5 +1,5 @@
+#pragma once
 #include "sanitizer.h"
-#include <unordered_set>
 #include <vector>
 
 class InvisibleCharSanitizer : public Sanitizer
