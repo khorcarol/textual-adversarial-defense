@@ -7,16 +7,14 @@ TEST(SanitizeTests, ValidTagSequence)
 
     std::vector<char32_t> text = {
         0x1F3F4,
-        0xE0000 + 'v', 0xE0000 + 'a', 0xE0000 + 'l', 0xE0000 + 'i', 0xE0000 + 'd',
-        0xE0000 + 's', 0xE0000 + 'e', 0xE0000 + 'q', 0xE0000 + '1',
+        0xE0000 + 'g', 0xE0000 + 'b', 0xE0000 + 'e', 0xE0000 + 'n', 0xE0000 + 'g',
         0xE007F};
 
     tag_char_sanitizer.sanitize(text);
 
     std::vector<char32_t> expected = {
         0x1F3F4,
-        0xE0000 + 'v', 0xE0000 + 'a', 0xE0000 + 'l', 0xE0000 + 'i', 0xE0000 + 'd',
-        0xE0000 + 's', 0xE0000 + 'e', 0xE0000 + 'q', 0xE0000 + '1',
+        0xE0000 + 'g', 0xE0000 + 'b', 0xE0000 + 'e', 0xE0000 + 'n', 0xE0000 + 'g',
         0xE007F};
 
     EXPECT_EQ(text, expected);

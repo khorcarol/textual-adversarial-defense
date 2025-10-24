@@ -1,3 +1,4 @@
+import json
 import xml.etree.ElementTree as ET
 import os
 import string
@@ -46,5 +47,5 @@ if deprecated is not None and deprecated.text:
     ]
 
 
-print("Regular Subdivision IDs:", regular_subdivision_ids)
-print("Deprecated Subdivision IDs:", deprecated_subdivision_ids)
+print("Regular Subdivision IDs:", json.dumps(regular_subdivision_ids))
+print("Deprecated Subdivision IDs:", json.dumps(deprecated_subdivision_ids))
