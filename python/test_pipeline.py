@@ -29,7 +29,8 @@ p = _pipeline.Pipeline()
 p.add_bidi_sanitizer()
 p.add_invisible_sanitizer()
 p.add_tag_sanitizer()
-bidi = "Hello \u202eWorld \u202c \u200b"
+p.add_homoglyph_sanitizer()
+bidi = "Hello \u202eWorld \u202c \u200b \u0430"
 
 print(codepoints_ord(bidi))
 print(bidi)

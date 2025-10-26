@@ -9,6 +9,7 @@ add_library(DefensesLib
     modules/invisible.cpp
     modules/tags.cpp
     modules/bidi.cpp
+    modules/homoglyph.cpp
     core/pipeline.cpp
     utils.cpp
 )

@@ -12,6 +12,7 @@ include(GoogleTest)
 set(TEST_TARGETS
     test_invisible
     test_tags
+    test_homoglyph
 )
 
 foreach(test_target ${TEST_TARGETS})
