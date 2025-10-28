@@ -9,8 +9,8 @@ static const std::unordered_set<char32_t> INVISIBLE_CPS = {
 
 void InvisibleCharSanitizer::sanitize(std::vector<char32_t> &input)
 {
-    input.erase(std::remove_if(input.begin(), input.end(),
-                               [](char32_t cp)
-                               { return INVISIBLE_CPS.count(cp); }),
-                input.end());
+    // C++ 20 erase_if to remove invisible characters
+    std::erase_if(input,
+                  [](char32_t cp)
+                  { return INVISIBLE_CPS.count(cp); });
 }
