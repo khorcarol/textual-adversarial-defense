@@ -13,6 +13,7 @@ set(TEST_TARGETS
     test_invisible
     test_tags
     test_homoglyph
+    test_variation_selector
 )
 
 foreach(test_target ${TEST_TARGETS})

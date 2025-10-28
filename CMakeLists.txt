@@ -10,6 +10,7 @@ add_library(DefensesLib
     modules/tags.cpp
     modules/bidi.cpp
     modules/homoglyph.cpp
+    modules/variation_selector.cpp
     core/pipeline.cpp
     utils.cpp
 )
