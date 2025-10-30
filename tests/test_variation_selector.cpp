@@ -4,17 +4,27 @@
 TEST(SanitizeTests, ValidVariationSequence)
 {
     VariationSelectorSanitizer variation_selector_sanitizer;
-    variation_selector_sanitizer.allowed_previous_variations[0x3] = {};
-    variation_selector_sanitizer.allowed_previous_variations[0x2] = {0x1};
-    variation_selector_sanitizer.allowed_previous_variations[0x1] = {};
-
     std::vector<char32_t> text = {
-        0x1, 0x2, 0x3};
+        0x0023, 0xFE0F};
 
     variation_selector_sanitizer.sanitize(text);
 
     std::vector<char32_t> expected = {
-        0x2};
+        0x0023, 0xFE0F};
+
+    EXPECT_EQ(text, expected);
+}
+
+TEST(SanitizeTests, InvalidVariationSequence)
+{
+    VariationSelectorSanitizer variation_selector_sanitizer;
+    std::vector<char32_t> text = {
+        0x0001, 0xFE0F};
+
+    variation_selector_sanitizer.sanitize(text);
+
+    std::vector<char32_t> expected = {
+        0x0001};
 
     EXPECT_EQ(text, expected);
 }
