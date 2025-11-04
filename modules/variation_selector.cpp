@@ -7,7 +7,7 @@
 #include <array>
 #include <memory>
 #include <cstdio>
-
+#include <algorithm>
 
 std::string fetchURL(const std::string &url)
 {
@@ -97,24 +97,36 @@ void VariationSelectorSanitizer::sanitize(std::vector<char32_t> &input)
     input = std::move(res);
 }
 
-// int main()
-// {
-//     VariationSelectorSanitizer sanitizer;
-//     std::vector<char32_t> text = {0x1312f, 0xfe06};
-//     sanitizer.sanitize(text);
+#include <chrono>
+int main()
+{
+    auto start = std::chrono::high_resolution_clock::now();
+    VariationSelectorSanitizer sanitizer1;
+    auto m = std::chrono::high_resolution_clock::now();
 
-//     for (char32_t cp : text)
-//     {
-//         std::cout << std::hex << static_cast<uint32_t>(cp) << '\n';
-//     }
-//     std::cout << std::endl;
+    VariationSelectorSanitizer sanitizer2;
+    auto end = std::chrono::high_resolution_clock::now();
 
-//     std::vector<char32_t> text2 = {0x1312, 0xfe06};
-//     sanitizer.sanitize(text2);
+    std::chrono::duration<double, std::milli> duration = m - start;
+    std::chrono::duration<double, std::milli> duration2 = end - m;
 
-//     for (char32_t cp : text2)
-//     {
-//         std::cout << std::hex << static_cast<uint32_t>(cp) << '\n';
-//     }
-//     std::cout << std::endl;
-// }
+    std::cout << "Execution time: " << duration.count() << " ms\n";
+    std::cout << "Execution time: " << duration2.count() << " ms\n";
+    // std::vector<char32_t> text = {0x1312f, 0xfe06};
+    // sanitizer.sanitize(text);
+
+    // for (char32_t cp : text)
+    // {
+    //     std::cout << std::hex << static_cast<uint32_t>(cp) << '\n';
+    // }
+    // std::cout << std::endl;
+
+    // std::vector<char32_t> text2 = {0x1312, 0xfe06};
+    // sanitizer.sanitize(text2);
+
+    // for (char32_t cp : text2)
+    // {
+    //     std::cout << std::hex << static_cast<uint32_t>(cp) << '\n';
+    // }
+    // std::cout << std::endl;
+}
