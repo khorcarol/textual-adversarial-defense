@@ -7,7 +7,8 @@
 class TagCharSanitizer : public Sanitizer
 {
 private:
-    static const std::unordered_set<std::string> valid_sequences;
+    std::unordered_set<std::string> valid_sequences;
 public:
+    TagCharSanitizer();
     void sanitize(std::vector<char32_t> &input) override;
 };

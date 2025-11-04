@@ -37,4 +37,7 @@ for elem in root.findall(".//id[@type='region']"):
             expanded_codes = expand_token(match)
             region_subtags.extend(expanded_codes)
 
-print(json.dumps(region_subtags))
+with open("region_subtags.json", "w") as f:
+    json.dump(region_subtags, f)
+
+

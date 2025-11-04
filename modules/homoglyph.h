@@ -11,6 +11,6 @@ private:
 
 public:
     HomoglyphSanitizer();
-    void sanitize(std::vector<char32_t> &input);
+    void sanitize(std::vector<char32_t> &input) override;
 };
 

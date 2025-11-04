@@ -13,3 +13,4 @@ std::string Pipeline::sanitize(const std::string &input)
         module->sanitize(cps); // each module operates on std::vector<char32_t>
     return utils::codepoints_to_utf8(cps);
 }
+

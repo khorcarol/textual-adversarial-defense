@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 import os
 import string
 
-#Expand tokens like 'ad02~8', 'zwmv~w', 'alpq~r'
+# Expand tokens like 'ad02~8', 'zwmv~w', 'alpq~r'
 def expand_token(token):
     if "~" not in token:
         return [token.strip()]
@@ -47,5 +47,7 @@ if deprecated is not None and deprecated.text:
     ]
 
 
-print("Regular Subdivision IDs:", json.dumps(regular_subdivision_ids))
-print("Deprecated Subdivision IDs:", json.dumps(deprecated_subdivision_ids))
+
+with open("subdivision_ids.json", "w") as f:
+    json.dump(regular_subdivision_ids, f)
+    json.dump(deprecated_subdivision_ids, f)

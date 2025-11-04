@@ -7,72 +7,44 @@
 #include <array>
 #include <memory>
 #include <cstdio>
+#include <filesystem>
+#include <fstream>
+#include <nlohmann/json.hpp>
 
+VariationSelectorSanitizer::VariationSelectorSanitizer(){
+    std::filesystem::path source_dir = std::filesystem::path(__FILE__).parent_path().parent_path();
+    std::filesystem::path json_path = source_dir / "utils" / "variation_selector" / "variation_selector.json";
+    std::ifstream f(json_path);
 
-std::string fetchURL(const std::string &url)
-{
-    std::array<char, 4096> buffer;
-    std::string result;
-    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(("curl -s " + url).c_str(), "r"), pclose);
-    if (!pipe)
-        throw std::runtime_error("popen() failed!");
-    while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr)
-        result += buffer.data();
-    return result;
-}
-
-void load_from_data(const std::string &data, std::unordered_map<char32_t, std::vector<char32_t>> &allowed_previous_variations)
-{
-    std::istringstream file(data);
-    std::string line;
-
-    while (std::getline(file, line))
+    if (!f.is_open())
     {
-        // Skip comments or empty lines
-        if (line.empty() || line[0] == '#')
-            continue;
+        std::cerr << "Error: Could not open " << json_path << std::endl;
+        throw std::runtime_error("Failed to open json");
+    }
 
-        // Remove trailing comments
-        size_t hash = line.find('#');
-        if (hash != std::string::npos)
-            line = line.substr(0, hash);
+    nlohmann::json j;
+    try
+    {
+        f >> j;
+    }
+    catch (const nlohmann::json::parse_error &e)
+    {
+        std::cerr << "JSON parse error: " << e.what() << std::endl;
+        throw;
+    }
 
-        // Stop at semicolon
-        size_t semicolon = line.find(';');
-        if (semicolon == std::string::npos)
-            continue;
-        std::string left = line.substr(0, semicolon);
-
-        // Extract the two hex strings (base, variation)
-        std::istringstream iss(left);
-        std::string base_str, variation_str;
-        if (!(iss >> base_str >> variation_str))
-            continue; // malformed line
-
-        char32_t variation = static_cast<char32_t>(std::stoul(variation_str, nullptr, 16));
-        char32_t base = static_cast<char32_t>(std::stoul(base_str, nullptr, 16));
-        allowed_previous_variations[variation].push_back(base);
+    for (auto &[key, value] : j.items())
+    {
+        // Convert hex string to integer (code point)
+        char32_t src = static_cast<char32_t>(std::stoul(key, nullptr, 16));
+        for (const auto &cp : value)
+        {
+            char32_t dst = static_cast<char32_t>(std::stoul(cp.get<std::string>(), nullptr, 16));
+            allowed_previous_variations[src].push_back(dst);
+        }        
     }
 }
 
-VariationSelectorSanitizer::VariationSelectorSanitizer()
-{
-    loadDataOnce();
-}
-
-void VariationSelectorSanitizer::loadDataOnce(){
-    if (!isDataLoaded)
-    {
-        std::string emoji = fetchURL("https://www.unicode.org/Public/17.0.0/ucd/emoji/emoji-variation-sequences.txt");
-        std::string ivd = fetchURL("https://www.unicode.org/ivd/data/2025-07-14/IVD_Sequences.txt");
-        std::string standardized_variants = fetchURL("https://www.unicode.org/Public/17.0.0/ucd/StandardizedVariants.txt");
-
-        load_from_data(emoji, allowed_previous_variations);
-        load_from_data(ivd, allowed_previous_variations);
-        load_from_data(standardized_variants, allowed_previous_variations);
-        isDataLoaded = true;
-    }
-}
 
 void VariationSelectorSanitizer::sanitize(std::vector<char32_t> &input)
 {
