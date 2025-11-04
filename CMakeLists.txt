@@ -25,8 +25,16 @@ target_include_directories(DefensesLib PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+include(FetchContent)
+FetchContent_Declare(
+  json
+  GIT_REPOSITORY https://github.com/nlohmann/json.git
+  GIT_TAG v3.11.2
+)
+FetchContent_MakeAvailable(json)
+
 target_link_libraries(DefensesLib PUBLIC
-    fribidi
+    fribidi nlohmann_json::nlohmann_json
 )
 
 # Add the tests subdirectory
@@ -34,8 +42,6 @@ add_subdirectory(tests)
 
 
 # Enable Python bindings
-include(FetchContent)
-
 FetchContent_Declare(
     pybind11
     GIT_REPOSITORY https://github.com/pybind/pybind11.git
@@ -54,3 +60,4 @@ target_link_libraries(_pipeline PRIVATE
 set_target_properties(_pipeline PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/python
 )
+
