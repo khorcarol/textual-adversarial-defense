@@ -1,20 +1,26 @@
-#include <iostream>
-#include <memory>
-#include <cassert>
-
-#include "core/pipeline.h"
-#include "modules/bidi.h"
-#include "utils.h"
-
-int main()
+#include <gtest/gtest.h>
+#include "bidi.h"
+#include <stdio.h>
+#include <utils.h>
+TEST(BidiSanitizerTests_ReorderRLO_Test, ReordersRLOSegment)
 {
-    Pipeline p;
-    p.addModule(std::make_unique<BidiCharSanitizer>());
+    BidiCharSanitizer bidi_sanitizer;
 
-    std::string with_reorderings = u8"Hello \u202EWorld \u202C";
-    std::string cleaned = p.sanitize(with_reorderings);
+    std::vector<char32_t> text = {
+        0x202E,
+        0x0064, 0x006C, 0x0072, 0x006F, 0x0057, // 'd','l','r','o','W'
+        0x202C};
+    
+    std::cerr << utils::codepoints_to_utf8(text) << std::endl;
 
-    std::cout << "Before: " << with_reorderings << "\n";
-    std::cout << "After : " << cleaned << "\n";
-    return 0;
+    bidi_sanitizer.sanitize(text);
+
+    std::vector<char32_t> expected = {
+        0x202E,                                 // RLO
+        0x0057, 0x006F, 0x0072, 0x006C, 0x0064, // 'W','o','r','l','d'
+        0x202C                                  // PDF
+    };
+
+    EXPECT_EQ(text, expected);
 }
+
