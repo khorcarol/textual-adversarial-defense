@@ -15,6 +15,7 @@ set(TEST_TARGETS
     test_homoglyph
     test_variation_selector
     test_bidi
+    test_deletion
 )
 
 foreach(test_target ${TEST_TARGETS})

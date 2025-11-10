@@ -11,6 +11,7 @@ add_library(DefensesLib
     modules/bidi.cpp
     modules/homoglyph.cpp
     modules/variation_selector.cpp
+    modules/deletion.cpp
     core/pipeline.cpp
     utils.cpp
 )
