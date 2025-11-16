@@ -20,6 +20,18 @@ TEST(SanitizeTests, ValidTagSequence)
     EXPECT_EQ(text, expected);
 }
 
+TEST(SanitizeTests, TagOutsideBase)
+{
+    TagCharSanitizer tag_char_sanitizer;
+    std::vector<char32_t> text2 = {
+        0xE0000 + 'g', 0xE0000 + 'b', 0xE0000 + 'e', 0xE0000 + 'n', 0xE0000 + 'g'};
+    tag_char_sanitizer.sanitize(text2);
+
+    // Invalid tag sequence should be removed
+    std::vector<char32_t> expected = {};
+    EXPECT_EQ(text2, expected);
+}
+
 TEST(SanitizeTests, InvalidTagSequence)
 {
     TagCharSanitizer tag_char_sanitizer;

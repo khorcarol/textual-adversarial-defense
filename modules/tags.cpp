@@ -46,6 +46,7 @@ TagCharSanitizer::TagCharSanitizer()
 }
 
 
+
 void TagCharSanitizer::sanitize(std::vector<char32_t> & text)
 {
 
@@ -96,6 +97,19 @@ void TagCharSanitizer::sanitize(std::vector<char32_t> & text)
                 result.push_back(cp);
             }
         }
+        else if (cp >= TAG_START && cp <= TAG_END)
+        {
+            // Remove tag characters that are outside a tag sequence
+            if (base_positions.empty())
+            {
+                continue;
+            }
+            else
+            {
+                result.push_back(cp);
+            }
+        }
+
         else
         {
             result.push_back(cp);
