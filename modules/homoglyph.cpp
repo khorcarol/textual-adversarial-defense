@@ -13,13 +13,13 @@ HomoglyphSanitizer::HomoglyphSanitizer()
 {
     // Gets path to confusables.json relative to source file
     std::filesystem::path source_dir = std::filesystem::path(__FILE__).parent_path().parent_path();
-    std::filesystem::path json_path = source_dir / "utils" / "homoglyphs" / "confusables.json";
+    std::filesystem::path json_path = source_dir / "utils" / "homoglyphs" / "intentional.json";
     std::ifstream f(json_path);
     
     if (!f.is_open())
     {
         std::cerr << "Error: Could not open " << json_path << std::endl;
-        throw std::runtime_error("Failed to open confusables.json");
+        throw std::runtime_error("Failed to open json");
     }
 
     nlohmann::json j;
