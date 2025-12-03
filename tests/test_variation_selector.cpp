@@ -19,7 +19,7 @@ TEST(SanitizeTests, InvalidVariationSequence)
 {
     VariationSelectorSanitizer variation_selector_sanitizer;
     std::vector<char32_t> text = {
-        0x0001, 0xFE0F};
+        0x0001, 0xFE0F, 0xE01EF};
 
     variation_selector_sanitizer.sanitize(text);
 

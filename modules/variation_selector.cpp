@@ -13,6 +13,16 @@
 #include <algorithm>
 
 VariationSelectorSanitizer::VariationSelectorSanitizer(){
+    // Variation Selectors (U+FE00 to U+FE0F)
+    for (char32_t cp = 0xFE00; cp <= 0xFE0F; ++cp) {
+        variation_selectors.insert(cp);
+    }
+
+    // Variation Selectors Supplement (U+E0100 to U+E01EF)
+    for (char32_t cp = 0xE0100; cp <= 0xE01EF; ++cp) {
+        variation_selectors.insert(cp);
+    }
+    
     std::filesystem::path source_dir = std::filesystem::path(__FILE__).parent_path().parent_path();
     std::filesystem::path json_path = source_dir / "utils" / "variation_selector" / "variation_selector.json";
     std::ifstream f(json_path);
@@ -54,18 +64,21 @@ void VariationSelectorSanitizer::sanitize(std::vector<char32_t> &input)
     {
         char32_t cp = input[i];
         // Check if cp is a variation selector
-        if (allowed_previous_variations.find(cp) != allowed_previous_variations.end())
+        if (variation_selectors.find(cp) != variation_selectors.end())
         {
-            // If it's the first character or previous character not allowed, skip it
-            if (i == 0 || 
+            // If it is not the first character and previous character is allowed, add it
+            if (i != 0 &&
                 std::find(allowed_previous_variations[cp].begin(),
                           allowed_previous_variations[cp].end(),
-                          input[i - 1]) == allowed_previous_variations[cp].end())
+                          input[i - 1]) != allowed_previous_variations[cp].end())
             {
-                continue; // skip this variation selector
+                res.push_back(cp);
+            }
+            else{
+                continue;
             }
         }
-        res.push_back(cp);
+        else{res.push_back(cp);}
     }
     input = std::move(res);
 }
