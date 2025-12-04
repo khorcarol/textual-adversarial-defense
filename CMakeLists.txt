@@ -12,6 +12,7 @@ add_library(DefensesLib
     modules/homoglyph.cpp
     modules/variation_selector.cpp
     modules/deletion.cpp
+    modules/combined.cpp
     core/pipeline.cpp
     utils.cpp
 )
@@ -61,4 +62,3 @@ target_link_libraries(_pipeline PRIVATE
 set_target_properties(_pipeline PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/python
 )
-

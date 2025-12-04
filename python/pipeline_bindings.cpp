@@ -8,6 +8,7 @@
 #include "modules/homoglyph.h"
 #include "modules/variation_selector.h"
 #include "modules/deletion.h"
+#include "modules/combined.h"
 
 namespace py = pybind11;
 
@@ -29,6 +30,8 @@ PYBIND11_MODULE(_pipeline, m)
              { p.addModule(std::make_unique<VariationSelectorSanitizer>()); })
         .def("add_deletion_sanitizer", [](Pipeline &p)
              { p.addModule(std::make_unique<DeletionCharSanitizer>()); })
+        .def("add_combined_sanitizer", [](Pipeline &p)
+             { p.addModule(std::make_unique<CombinedSanitizer>()); })
         .def("sanitize", &Pipeline::sanitize);
 
     // Expose a convenience function that runs sanitize on a string

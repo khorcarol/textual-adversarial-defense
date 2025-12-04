@@ -16,6 +16,7 @@ set(TEST_TARGETS
     test_variation_selector
     test_bidi
     test_deletion
+    test_combination
 )
 
 foreach(test_target ${TEST_TARGETS})

@@ -1,0 +1,13 @@
+budget,input_size,config,sanitize_ms,recovered,recovery_rate
+100,1000,all_individual,9.055,50/50,100.0%
+100,1000,bidi_combined,8.995,50/50,100.0%
+100,3000,all_individual,23.772,50/50,100.0%
+100,3000,bidi_combined,24.009,50/50,100.0%
+100,5000,all_individual,45.623,50/50,100.0%
+100,5000,bidi_combined,33.641,50/50,100.0%
+500,1000,all_individual,14.325,50/50,100.0%
+500,1000,bidi_combined,13.746,50/50,100.0%
+500,3000,all_individual,35.881,50/50,100.0%
+500,3000,bidi_combined,29.245,50/50,100.0%
+500,5000,all_individual,35.733,50/50,100.0%
+500,5000,bidi_combined,30.311,50/50,100.0%
