@@ -1,7 +1,0 @@
-input_size,config,sanitize_ms,recovered,recovery_rate
-1000,all_individual,5.989,100/100,100.0%
-1000,bidi_combined,4.544,100/100,100.0%
-5000,all_individual,25.127,100/100,100.0%
-5000,bidi_combined,21.147,100/100,100.0%
-10000,all_individual,52.619,100/100,100.0%
-10000,bidi_combined,70.129,100/100,100.0%
