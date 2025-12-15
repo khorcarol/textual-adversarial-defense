@@ -1,0 +1,36 @@
+[build-system]
+requires = [
+    "scikit-build-core",
+    "meson",
+    "pybind11",
+]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "textual-adversarial-defense"
+version = "0.1.0"
+description = "Unicode-based adversarial defenses for text models"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Carol Khor", email = "shunting.khor1@gmail.com"},
+]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.19.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/khorcarol/textual-adversarial-defense"
+Repository = "https://github.com/khorcarol/textual-adversarial-defense.git"
+
+[tool.scikit-build]
+cmake.version = ">=3.14"
+cmake.build-type = "Release"
+
+[tool.scikit-build.cmake.define]
+# Optional: add CMake defines here if needed
+

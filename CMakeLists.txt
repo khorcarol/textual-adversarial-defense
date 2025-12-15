@@ -49,24 +49,28 @@ if(NOT EXISTS "${FRIBIDI_SOURCE_DIR}")
     )
 endif()
 
-# Build fribidi with Meson - use add_custom_target to ensure it runs
-add_custom_target(fribidi_build ALL
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${FRIBIDI_BUILD_DIR}"
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${FRIBIDI_INSTALL_DIR}"
+# Build fribidi with Meson - use add_custom_command to generate the library file
+add_custom_command(OUTPUT "${FRIBIDI_LIB_PATH}"
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${FRIBIDI_BUILD_DIR}
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${FRIBIDI_INSTALL_DIR}
     
     COMMAND ${MESON_EXECUTABLE} setup 
-        --prefix="${FRIBIDI_INSTALL_DIR}"
+        --prefix=${FRIBIDI_INSTALL_DIR}
         --default-library=static
         -Dtests=false
         -Ddocs=false
-        "${FRIBIDI_BUILD_DIR}"
-        "${FRIBIDI_SOURCE_DIR}"
+        ${FRIBIDI_BUILD_DIR}
+        ${FRIBIDI_SOURCE_DIR}
     
-    COMMAND ${NINJA_EXECUTABLE} -C "${FRIBIDI_BUILD_DIR}"
-    COMMAND ${NINJA_EXECUTABLE} -C "${FRIBIDI_BUILD_DIR}" install
+    COMMAND ${NINJA_EXECUTABLE} -C ${FRIBIDI_BUILD_DIR}
+    COMMAND ${NINJA_EXECUTABLE} -C ${FRIBIDI_BUILD_DIR} install
     
+    DEPENDS ${FRIBIDI_SOURCE_DIR}/meson.build
     COMMENT "Building fribidi with Meson"
 )
+
+# Create a custom target that produces the library file
+add_custom_target(fribidi_build ALL DEPENDS "${FRIBIDI_LIB_PATH}")
 
 # Create imported library target for fribidi
 add_library(fribidi STATIC IMPORTED)
