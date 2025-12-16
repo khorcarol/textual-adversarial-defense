@@ -1,4 +1,5 @@
 #include "tags.h"
+#include "resources.h"
 #include <cstddef>
 #include <unordered_set>
 #include <string>
@@ -37,9 +38,8 @@ void parse_set(std::filesystem::path json_path, std::unordered_set<std::string> 
 }
 TagCharSanitizer::TagCharSanitizer()
 {
-    std::filesystem::path source_dir = std::filesystem::path(__FILE__).parent_path().parent_path();
-    std::filesystem::path json_path_1 = source_dir / "utils" / "tags" /"region_subtags.json";
-    std::filesystem::path json_path_2 = source_dir / "utils" / "tags" / "subdivision_ids.json";
+    std::filesystem::path json_path_1 = resources::get_resource_path("tags/region_subtags.json");
+    std::filesystem::path json_path_2 = resources::get_resource_path("tags/subdivision_ids.json");
 
     parse_set(json_path_1, valid_sequences);
     parse_set(json_path_2, valid_sequences);

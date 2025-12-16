@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <filesystem>
+#include "resources.h"
 
 void CombinedSanitizer::parse_tag_set(const std::string &json_path, std::unordered_set<std::string> &valid_sequences)
 {
@@ -55,13 +56,14 @@ CombinedSanitizer::CombinedSanitizer()
     std::filesystem::path source_dir = std::filesystem::path(__FILE__).parent_path().parent_path();
 
     // Load tags
-    std::filesystem::path tag_path_1 = source_dir / "utils" / "tags" / "region_subtags.json";
-    std::filesystem::path tag_path_2 = source_dir / "utils" / "tags" / "subdivision_ids.json";
+    std::filesystem::path tag_path_1 = resources::get_resource_path("tags/region_subtags.json");
+    std::filesystem::path tag_path_2 = resources::get_resource_path("tags/subdivision_ids.json");
+    
     parse_tag_set(tag_path_1.string(), valid_tag_sequences);
     parse_tag_set(tag_path_2.string(), valid_tag_sequences);
 
     // Load variation selector allowlist
-    std::filesystem::path vs_path = source_dir / "utils" / "variation_selector" / "variation_selector.json";
+    std::filesystem::path vs_path = resources::get_resource_path("variation_selector/variation_selector.json");
     std::ifstream vs_file(vs_path);
     if (!vs_file.is_open())
     {
@@ -89,7 +91,7 @@ CombinedSanitizer::CombinedSanitizer()
     }
 
     // Load homoglyph map
-    std::filesystem::path homo_path = source_dir / "utils" / "homoglyphs" / "intentional.json";
+    std::filesystem::path homo_path = resources::get_resource_path("homoglyphs/intentional.json");
     std::ifstream homo_file(homo_path);
     if (!homo_file.is_open())
     {

@@ -1,4 +1,5 @@
 #include "variation_selector.h"
+#include "resources.h"
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -23,8 +24,7 @@ VariationSelectorSanitizer::VariationSelectorSanitizer(){
         variation_selectors.insert(cp);
     }
     
-    std::filesystem::path source_dir = std::filesystem::path(__FILE__).parent_path().parent_path();
-    std::filesystem::path json_path = source_dir / "utils" / "variation_selector" / "variation_selector.json";
+    std::filesystem::path json_path = resources::get_resource_path("variation_selector/variation_selector.json");
     std::ifstream f(json_path);
 
     if (!f.is_open())

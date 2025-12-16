@@ -30,6 +30,7 @@ Repository = "https://github.com/khorcarol/textual-adversarial-defense.git"
 [tool.scikit-build]
 cmake.version = ">=3.14"
 cmake.build-type = "Release"
+wheel.packages = ["src/textual_adversarial_defense", "utils"]
 
 [tool.scikit-build.cmake.define]
 # Optional: add CMake defines here if needed

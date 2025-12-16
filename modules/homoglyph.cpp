@@ -1,4 +1,5 @@
 #include "homoglyph.h"
+#include "resources.h"
 #include <unordered_map>
 #include <cstdint>
 #include <iostream>
@@ -11,9 +12,8 @@
 
 HomoglyphSanitizer::HomoglyphSanitizer()
 {
-    // Gets path to confusables.json relative to source file
-    std::filesystem::path source_dir = std::filesystem::path(__FILE__).parent_path().parent_path();
-    std::filesystem::path json_path = source_dir / "utils" / "homoglyphs" / "intentional.json";
+    // Gets path from package resources (works for wheel and local)
+    std::filesystem::path json_path = resources::get_resource_path("homoglyphs/intentional.json");
     std::ifstream f(json_path);
     
     if (!f.is_open())
