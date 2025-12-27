@@ -22,7 +22,7 @@ def load_model(args):
     return model_wrapper
 
 def get_attacker(model_wrapper, args):
-    if args.attack_name == 'charmix':
+    if args.attack_name in ['charmix', 'positionrand']:
         from charmix import Charmix
         attack = Charmix(model_wrapper, args)
     return attack

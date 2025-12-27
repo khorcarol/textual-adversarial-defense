@@ -39,16 +39,14 @@ class Charmix:
             idx = torch.argmax(loss)
         return SS[idx], pred[idx], loss[idx]
     
-    def attack_brute_force_random(self, S, label, subset_z, bs=1024):
+    def attack_brute_force_random(self, S, label, bs=1):
         with torch.no_grad():
             SS = myutils.generate_all_sentences(S, self.V)
             B = np.random.choice(SS, min(bs, len(SS)), replace = False).tolist()
-            pred = []
-            for i in range(len(SS)//bs+1):
-                
-                T = self.model_wrapper.tokenizer(SS[i*bs:min((i+1)*bs, len(SS))], padding = 'longest',return_tensors = 'pt', add_special_tokens = True, truncation = True)
-                pred.append(self.model_wrapper.model(input_ids = T['input_ids'].to(self.device), attention_mask = T['attention_mask'].to(self.device)).logits)
-            pred = torch.cat(pred, dim=0)
+
+            T = self.model_wrapper.tokenizer(B, padding = 'longest',return_tensors = 'pt', add_special_tokens = True, truncation = True)
+            pred = (self.model_wrapper.model(input_ids = T['input_ids'].to(self.device), attention_mask = T['attention_mask'].to(self.device)).logits)
+            
             loss = self.criterion(pred, label.repeat(pred.shape[0]))
             idx = torch.argmax(loss)
         return SS[idx], pred[idx], loss[idx]
@@ -56,8 +54,13 @@ class Charmix:
     def attack(self, orig_S, orig_label):
         with torch.no_grad(): 
             for n in range(self.args.n_positions):
-                subset_z = self.get_top_n_locations(orig_S, orig_label)
-                s, pred, _ = self.attack_brute_force(orig_S, orig_label, subset_z)
+                if self.args.attack_name == "charmer":
+                    subset_z = self.get_top_n_locations(orig_S, orig_label)
+                    s, pred, _ = self.attack_brute_force(orig_S, orig_label, subset_z)
+                    
+                elif self.args.attack_name == "positionrand":
+                    s, pred, _ = self.attack_brute_force_random(orig_S, orig_label)
+                
                 adv_label = torch.argmax(pred).item()
                 
                 orig_S = s

@@ -4,17 +4,21 @@ import dataloader
 import torch
 import time
 from tqdm import tqdm
+import pandas as pd
+import os
+
 # model, dataset, n_positions, subset
 
 parser = argparse.ArgumentParser()
 MODELS = ["textattack/roberta-base-SST-2"]
 DATASETS = ["sst2"]
+ATTACK_NAME = ["charmix", "fullrand", "positionrand"]
 
 parser.add_argument('--model', type=str, default= "textattack/roberta-base-SST-2", help=f'Pre-trained model name. One of {" | ".join(MODELS)}')
 parser.add_argument('--dataset', type=str, default='sst2', help=f'Dataset name. One of {" | ".join(DATASETS)}')
 parser.add_argument('--n_positions', type=int, default=512, help='Maximum number of perturbations')
 parser.add_argument('--subset', type=int, default=None, help='Subset of dataset to use')
-parser.add_argument('--attack_name', type=str, default='charmix', help='Name of the attack method')
+parser.add_argument('--attack_name', type=str, default='charmix', help=f'Name of the attack method. One of {" | ".join(ATTACK_NAME)}')
 parser.add_argument('--device', type = str, default = 'cuda',help='cpu or cuda')
 
 
@@ -75,7 +79,15 @@ for idx in tqdm(range(test_size)):
 end_time_all = time.time()
 print(f"[Succeeded /Failed / Skipped / Total] {succ} /{fail} / {skip} / {len(attack_dataset['label'])}")
 print(f"Total time: {end_time_all - start_time_all} seconds for {count} samples")
-# save df to cs under data/
-import pandas as pd
+
+
 output_df = pd.DataFrame(df)
-output_df.to_csv(f'/local/scratch/stk31/InvisText/InvisAttack/InvisAttack/data/{args.attack_name}_{args.model.split("/")[-1]}_{args.dataset}_results.csv', index=False)
+
+safe_model_name = args.model.replace("/", "-")
+output_name = f"{args.attack_name}_{safe_model_name}_{args.dataset}_{args.n_positions}npos_{args.subset}subset.csv"
+folder_name = os.path.join("results")
+os.makedirs(folder_name, exist_ok=True)
+
+full_path = os.path.join(folder_name, output_name)
+output_df.to_csv(full_path, index=False)
+print("File saved to ", full_path)
