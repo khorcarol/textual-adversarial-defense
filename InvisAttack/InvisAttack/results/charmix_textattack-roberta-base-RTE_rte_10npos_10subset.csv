@@ -1,0 +1,11 @@
+original,perturbed,True,Pred_original,Pred_perturbed,success,time,n_positions
+Christopher Reeve had an accident.,Christopher Reeve had an‎ ac‬cident.‎‎,1,1,0,True,58.287189245224,5
+Bacteria is winning the war against antibiotics.,,0,1,-1,False,-1.0,-1
+15 million tonnes of rubbish are produced daily in Cairo.,,1,0,-1,False,-1.0,-1
+Pennsylvania has the biggest Amish community in the U.S.,Pen󠀉nsylvania has ︎the bigges﻿t Amish community in ⁨the U.S.,1,1,0,True,83.81930184364319,4
+Security forces were on high alert after a campaign marred by violence.,Security forces were on high alert after a cam‪paign marred by violence.,0,0,1,True,11.37923812866211,1
+The Israel-Egypt Peace Agreement was signed in 1979.,The Israel-Egypt Peace Agreement was signed in 1979.,0,0,1,True,7.657913684844971,1
+Spears is to divorce from Kevin Federline.,Sp󠁫ears is to divorce from Kevin Federline.,0,0,1,True,7.454591989517212,1
+Wales to host 2010 Ryder Cup.,Wales to host 2010 Ryder Cup.,0,0,1,True,4.584441661834717,1
+Steve Jobs worked for Apple.,Steve Jobs worked for Ap‮ple.,0,0,1,True,3.4816458225250244,1
+The Raisani tribe resides in Pakistan.,The Raisani tribe resides in P󠅄akistan.,0,0,1,True,7.554100751876831,1

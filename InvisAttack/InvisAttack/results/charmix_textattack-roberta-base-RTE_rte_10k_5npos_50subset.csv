@@ -1,0 +1,53 @@
+#[Succeeded /Failed / Skipped / Total] 32 /9 / 9 / 50
+#Total time: 550.7912294864655 seconds for 50 samples
+original,perturbed,True,Pred_original,Pred_perturbed,success,time,n_positions
+Christopher Reeve had an accident.,Christopher Reeve ha​d ‎an﻿ accident︃.‎‎︃,1,1,0,True,13.836382627487183,7
+Bacteria is winning the war against antibiotics.,,0,1,-1,False,-1.0,-1
+15 million tonnes of rubbish are produced daily in Cairo.,,1,0,-1,False,-1.0,-1
+Pennsylvania has the biggest Amish community in the U.S.,Pennsylvania󠀜 has the bigges󠀜t A󠀜mish community in ︅the U.S.,1,1,0,True,21.387551307678223,4
+Security forces were on high alert after a campaign marred by violence.,Security forces were on high alert after a campaign marred by viole‫nce.,0,0,1,True,1.997894287109375,1
+The Israel-Egypt Peace Agreement was signed in 1979.,The Israel-Egypt Peace Agreement was signed in 1979.,0,0,1,True,2.4400291442871094,1
+Spears is to divorce from Kevin Federline.,⁠Spears is to divorce from Kevin Fed‏erli󠁖ne.,0,0,1,True,15.135047912597656,4
+Wales to host 2010 Ryder Cup.,Wales to host 2010 Ryder Cup.,0,0,1,True,2.210439920425415,1
+Steve Jobs worked for Apple.,Steve Jobs worked for Ap‮ple.,0,0,1,True,1.7211723327636719,1
+The Raisani tribe resides in Pakistan.,The Raisani tri󠅶be resi󠆾des in Pakistan.,0,0,1,True,4.527510404586792,2
+Doctors Without Borders is an international aid organization.,Docto󠅾rs Without Borders is an international aid organizat󠁠ion.,0,0,1,True,4.5273730754852295,2
+"In a bowl, whisk together the egg, sugar and vanilla until light in color.","In‫ a bowl, wh﻿﻿i﻿sk ​together ‪the️ 󠅢egg, sugar and vanilla until light in color.️󠅢",1,1,1,False,21.69702649116516,10
+2.7 percent of the people infected with HIV live in Africa.,2.7 pe‍rcent of t󠄄he people infected with HIV live in​ ​Afric​󠄔a.​󠄔,1,1,0,True,23.277466535568237,10
+"Jack Kevorkian is the real name of ""Dr. Death"".","Jack Kevorkian is the real name of ""D󠅃r. Death"".",0,0,1,True,3.0070865154266357,1
+Procter and Gamble spends $1.8 billion for Research and Development.,Procter and Gamble spends $1.8 billion for Research and Develo󠅠pment.,0,0,1,True,2.5155982971191406,1
+The U.S. military evacuated U.S. citizens.,The U.S. military evacuated U.S. citiz⁩ens.󠀖,1,1,0,True,4.323060512542725,2
+Mice fed with red wine lived longer despite a fatty diet.,Mice fed with red wine lived longer despite a fatty diet.,1,1,0,True,1.6959924697875977,1
+Charles de Gaulle died in 1970.,Charles de Gaulle died in 1970.,0,0,1,True,2.9773380756378174,1
+France participates in Euro 2004.,France participates in Euro 20‬04.,0,0,1,True,2.2795941829681396,1
+President Fujimori was re-elected in 1995.,President︃ Fujimori w‎󠅋as re-elected​ ​i󠁫n‍ 19​95.󠁖,1,1,1,False,41.540934324264526,10
+"Hepburn's diamond and sapphire brooch fetched $120,000.","Hepburn's dia︁mond and sapphire brooch fetched $120,000.",0,0,1,True,2.615421772003174,1
+Huckaby is accused of killing Sandra Cantu.,Huckaby is accused of kil︃ling Sandra Cantu.,0,0,1,True,4.955541610717773,1
+Eljvir Duka comes from Albania.,Eljvir Duka comes from Alb‮ania.,0,0,1,True,5.7299206256866455,1
+"""The Osbournes"" is the name of a reality show starring Ozzy Osbourne.","""The Osbournes"" is the name of a real󠆩ity show starring Ozzy Osbourne.",0,0,1,True,5.321489572525024,1
+Sky News offices are close to the Bank of England.,Sk︈y︈ News︈︎ ‏offices are close to the Bank o󠁐f England︈.󠁐,1,1,1,False,53.089104413986206,10
+The San Diego Padres won the game against the St. Louis Cardinals.,The San Diego Padres 󠅋󠄜won󠅋 the game against﻿⁦ the St. L󠀔ouis Cardinals󠀔.​󠅋,1,1,1,False,23.952738285064697,10
+Unocal said it would evaluate the CNOOC offer.,Unocal s󠅋ai‌d​ it would 󠇞​evaluate 󠅣the ‌CNOOC offer.󠅋󠅣,1,1,1,False,27.397192001342773,10
+Fallujah and Baqubah are Iraqi cities.,Fallujah and Baqubah are Iraqi citie︃s.,0,0,1,True,2.0057528018951416,1
+Chinese engineers working on long-term projects in India can easily obtain visas.,,1,0,-1,False,-1.0,-1
+A daily commuter flight crashed in Buffalo.,A‬ daily commuter flight crashed󠄢󠅠 i󠆒n󠄢 ‎‮Buffalo.,1,1,1,False,35.1605658531189,10
+"Slovenia has 3,000 inhabitants.","️󠀝Slovenia h‌as‭‭ 3​,000‌ inhabitants.️󠀝‭",1,1,0,True,22.651582717895508,10
+13 persons were killed by two students in 1999.,,0,1,-1,False,-1.0,-1
+Simon Cowell fell in love with Susan Boyle.,Simon Cowell󠁘󠁙 fell in love︊ with‎ ‫Susan Boyle.󠁘󠁙,1,1,1,False,78.70381283760071,10
+"In 2001, the EU introduced a six-month compulsory quarantine for all domestic pets.",,1,0,-1,False,-1.0,-1
+50th Anniversary of Normandy Landings lasts a year.,50th Anniversary of No︎rmandy Landings lasts a year.,0,0,1,True,2.044100522994995,1
+Qin Shi Huang was the first Chinese Emperor.,Qin Shi Huang was󠁖 the first Chinese Emperor.󠁖,1,1,0,True,5.961334466934204,3
+Cyprus was divided into two parts in March 2001.,Cyprus was divided ​into two󠅋 parts ︎in March 2001​.󠅋,1,1,0,True,22.76595664024353,8
+"Before Salt Lake City, Winter Olympic Games took place in Nagano.","Before Salt Lake City, Winte󠅅r Olympic Games took place in Nagano.",0,0,1,True,2.850931406021118,1
+Shares of Amazon fell 4 percent.,,1,0,-1,False,-1.0,-1
+"Before Salt Lake City, Winter Olympic Games took place in Nagano.","Before︆ 󠅋󠆮Salt Lake City, Winter Olympic Games took place ‫in Nagano.︊󠅋︆󠅋",1,1,1,False,27.225708961486816,10
+Breast milk may help fight cervical cancer.,Brea󠅓st milk may help fight cervical cancer.,0,0,1,True,4.204266309738159,2
+Mr Dean is the Secretary of Health and Human Services.,Mr Dean is the Secretary of Health and Human Service﻿s.,1,1,0,True,2.707092046737671,1
+Alice Cooper is a Christian.,Alice Cooper is a Chri︃stian.,0,0,1,True,4.9446024894714355,1
+Pibul was the dictator of Thailand.,Pibul was the di⁦ctator of Thailand.,0,0,1,True,1.6877434253692627,1
+Neil Armstrong was the first man who landed on the Moon.,Neil Armstrong was the first man who landed on the M︃oon.,0,0,1,True,2.913902759552002,1
+KTLK is located in San Francisco.,,1,0,-1,False,-1.0,-1
+Russians hold record for longest stay in space.,Russians hold record for longe‫st stay in space.,0,0,1,True,2.024298906326294,1
+Marine vegetation is  harvested.,,1,0,-1,False,-1.0,-1
+Mike Tyson bit Holyfield's ear in 1964.,,1,0,-1,False,-1.0,-1
+"On Sunday, officials argued about whether to seek a delay of the August deadline for completing the document in order to give them more time to hash out such sticky issues.","On Sunday‎, of󠁫󠅙ficials argued about whether to seek a delay of the August deadline for completing the document in order to give them more time to hash out 󠅅such sticky issue󠅙s.‎󠁫󠅅",1,1,1,False,37.940656423568726,10

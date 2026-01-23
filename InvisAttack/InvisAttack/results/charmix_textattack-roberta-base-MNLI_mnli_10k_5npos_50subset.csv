@@ -1,0 +1,53 @@
+#[Succeeded /Failed / Skipped / Total] 38 /4 / 8 / 50
+#Total time: 304.46082067489624 seconds for 50 samples
+original,perturbed,True,Pred_original,Pred_perturbed,success,time,n_positions
+Everyone really likes the newest benefits ,Ever︉yone really li⁧kes the newest benefits ,1,1,0,True,2.397601842880249,2
+The Government Executive articles housed on the website are not able to be searched.,The Go󠅻vernment Ex󠅻ecutive articles housed o︈󠇩n t󠅌he​ webs󠁫󠆒ite are not able to be searched.,0,0,0,False,23.434800386428833,10
+"I like him for the most part, but would still enjoy seeing someone beat him.","I like him for the mos󠆱t part, but would still enjoy seeing someone beat him.",2,2,1,True,2.1711232662200928,1
+My favorite restaurants are always at least a hundred miles away from my house. ,My fa󠁙vorite re﻿stau󠇇rants are al󠆝ways at least a hundred miles away from my house. ,0,0,1,True,10.302851438522339,4
+I know exactly.,󠅋󠁠I󠁁󠅋 k󠆒now exact󠄕ly.,0,0,1,True,8.939371585845947,6
+We have plenty of space in the landfill.,We have plenty of spa󠀺c﻿​e in the landf﻿️i󠄛ll.,0,0,0,False,27.529173135757446,10
+I did that all through college but it never worked ,I did that‪ all through college but it never worked ,0,0,2,True,3.144786834716797,2
+Most of Mrinal Sen's work can be found in European collections.,Most of Mri󠁃nal Sen's work can be︈ found in Eu󠁖ropean col󠆒lections.,1,1,0,True,12.37000584602356,4
+THe strike price could be $8.,THe st󠀜rike price could be $8.,0,0,1,True,2.452578544616699,1
+Would you rise up and defeaat all evil lords in the town?,Would you rise u󠀯p and defeaat al⁠l evil lords in the town?,1,1,0,True,4.0489490032196045,2
+"Go downwards to one of the gates, all of which will lead you into the cathedral.","Go do⁨wnwards to one of the gates, all of which will lead you into the cathedral.",0,0,2,True,2.5317275524139404,1
+The Tamils' bhakti movement froze the previously warm ritual of Hinduism.,The Tamils' bhakti movement 󠅞froze t󠇭he previously warm ritual of Hinduism.,0,0,2,True,4.1700849533081055,2
+Everyone involved was the same age.,Every󠆱on󠆩e 󠅞invo󠅋lved was󠅅 the same age.,0,0,1,True,28.188737392425537,7
+Severn said the people were not welcome there.,Severn said the people were not welcome the󠅺re.,2,2,1,True,1.5038037300109863,1
+We don't loan a lot of money.,,1,0,-1,False,-1.0,-1
+I don't know how cold it got last night.,,2,1,-1,False,-1.0,-1
+I need a way to add something extra.,I need a way to add something extra.,2,2,1,True,1.370558261871338,1
+Sometimes it is amusing to see what the hologram creates.,Sometimes it is amus󠁫ing to see what the hologram creates.,2,2,1,True,2.6193959712982178,1
+Gross national saving was highest this year.,Gross national saving was highes‍t this year.,1,1,0,True,1.6767823696136475,1
+The amount of lost mail is huge and really impacts mail volume,​The amount of lost mai󠅃l 󠇃is huge and r󠅃eally impacts mail volume,0,0,0,False,24.506759881973267,10
+"You don't want to push the button lightly, but rather punch it hard.",,1,2,-1,False,-1.0,-1
+It has a buffet.,I‍t has a buffet.,2,2,0,True,1.146697759628296,1
+Clinton said that Monica Lewinsky made unwanted sexual advances during her time as a journalist in the White House. ,Clinton ‎s󠅴‌aid that Monica Le󠇆wi‌nsky made unwanted sexual advances during her time as a journalist in the White House. ,1,1,0,True,11.077145338058472,5
+Leading organizations want to be sure their employees are safe.,Leading organization󠆒s want to be sure their employees are safe.,1,1,0,True,3.784367322921753,2
+"No, they wouldn't go there.","No, they wo​uldn't go there.",1,1,2,True,1.3092913627624512,1
+This is how things are and there are no apologies about it.,,0,1,-1,False,-1.0,-1
+Pope John Paul II also visited in 1983.,Pope John Paul II als︎o visited in 1983.,1,1,0,True,1.9534721374511719,1
+Tourism is not very big in Spain.,󠁁Touris︁m is not 󠄅very big 󠄮i󠅾n Spain.,0,0,1,True,12.576109170913696,5
+She had changed a lot since the last time we'd seen her.,She ha‪d changed a l‎ot since the last time we'd seen her.,1,1,0,True,2.6682755947113037,2
+I cannot wait for it to happen.,I cannot wait for i‍t to happen.,1,1,0,True,1.6689562797546387,1
+The 1931 Malay census was an alarm bell.,The 1931󠆒 Malay census was an alarm bell.,2,2,1,True,1.4754705429077148,1
+Many youth are lazy.,Many you󠆒th are lazy.,2,2,1,True,1.985537052154541,1
+Interest rates should increase to increase saving.,Interest rates should incr⁩ease to increase saving.,0,0,2,True,1.7709448337554932,1
+There is a British publication called the Sun.,Th󠁱ere is a British publication called the󠁮 Sun.,2,2,0,True,4.776460409164429,2
+He loved how peaceful the village was.,He loved how peaceful the village was󠅴.,2,2,1,True,1.4339797496795654,1
+The slopes between the Vosges and Rhine Valley are the only place appropriate for vineyards.,The slopes between the Vosges and Rhine Valley are the only place appropri‮ate for vineyards.,1,1,0,True,3.0503742694854736,1
+These deviations mostly involve failure to apply software updates in a timely manner.,These deviations mos﻿tly invol‍ve fai󠆒lure t⁨o apply software upda󠄂tes in a timely manner.,1,1,0,True,17.45067024230957,7
+"Joan of Arc sacrificed her life at Rouen, which became an enduring symbol of opposition to tyranny.","Joan of Arc sacrificed her li󠆠fe at Rouen, which became an enduring symbol of opposition to tyranny.",2,2,1,True,2.512515068054199,1
+Senior Executive's have been studies on various aspects to reach the expectations.,,2,1,-1,False,-1.0,-1
+It's impossible to have a plate hand-painted to your own design in Hong Kong.,It's im󠀜possible to have a plate hand-painted to your own design in Hong Kong.,0,0,2,True,2.1241061687469482,1
+Jewelry and duty-free shops are an interesting place to buy goods.,⁠Jewelry and duty-free shops are an inter⁩⁦esting⁦ place to buy goods.,1,1,2,True,12.386977910995483,5
+Jobs never held onto an idea for long.,,0,2,-1,False,-1.0,-1
+Democracies probably won't go to war unless someone attacks them on their soil,,2,1,-1,False,-1.0,-1
+"There is no information on the mentality of the man, extraordinary or not, contained within the thin-paged book. ","There‎󠆒 is no information on󠅱 the󠅾󠅋 mentality ​of the man, extraordinary or not,󠅮 contained within︉ the thin-paged book. ",0,0,0,False,33.24950313568115,10
+The military didn't pay for her education.,The mili󠅾tary 󠅸didn't p󠇮󠇇ay fo︂r󠅸 her education.,0,0,2,True,13.048510789871216,7
+These men filed their midterm exams from home. ,,0,1,-1,False,-1.0,-1
+Not many couples with kids can save up for retirement.,N󠇫ot m󠇜any couples with kids can save up for retirement.,2,2,0,True,4.386735439300537,2
+"They dodged the draft, I'll have you know.","They dodged the draf﻿t, I'll have you know.",2,2,0,True,1.4370625019073486,1
+Lincoln took his hat off.,Lincoln took his hat o󠅓ff.,2,2,1,True,1.521773099899292,1
+The stock market can experience much worse damage. ,The stock mark󠅱et can experience much worse damage. ,2,2,1,True,1.474607229232788,1

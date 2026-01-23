@@ -1,0 +1,13 @@
+#[Succeeded /Failed / Skipped / Total] 8 /2 / 0 / 10
+#Total time: 93.84971642494202 seconds for 10 samples
+original,perturbed,True,Pred_original,Pred_perturbed,success,time,n_positions
+Everyone really likes the newest benefits ,Ever︉yone really li⁧kes the newest benefits ,1,1,0,True,2.293181896209717,2
+The Government Executive articles housed on the website are not able to be searched.,The Go󠅻vernment Ex󠅻ecutive articles housed o︈󠇩n t󠅌he​ webs󠁫󠆒ite are not able to be searched.,0,0,0,False,22.161134958267212,10
+"I like him for the most part, but would still enjoy seeing someone beat him.","I like him for the mos󠆱t part, but would still enjoy seeing someone beat him.",2,2,1,True,2.074981689453125,1
+My favorite restaurants are always at least a hundred miles away from my house. ,My fa󠁙vorite re﻿stau󠇇rants are al󠆝ways at least a hundred miles away from my house. ,0,0,1,True,9.951150894165039,4
+I know exactly.,󠅋󠁠I󠁁󠅋 k󠆒now exact󠄕ly.,0,0,1,True,8.324130773544312,6
+We have plenty of space in the landfill.,We have plenty of spa󠀺c﻿​e in the landf﻿️i󠄛ll.,0,0,0,False,27.132733583450317,10
+I did that all through college but it never worked ,I did that‪ all through college but it never worked ,0,0,2,True,2.947233200073242,2
+Most of Mrinal Sen's work can be found in European collections.,Most of Mri󠁃nal Sen's work can be︈ found in Eu󠁖ropean col󠆒lections.,1,1,0,True,12.249250650405884,4
+THe strike price could be $8.,THe st󠀜rike price could be $8.,0,0,1,True,2.433616876602173,1
+Would you rise up and defeaat all evil lords in the town?,Would you rise u󠀯p and defeaat al⁠l evil lords in the town?,1,1,0,True,4.019273519515991,2

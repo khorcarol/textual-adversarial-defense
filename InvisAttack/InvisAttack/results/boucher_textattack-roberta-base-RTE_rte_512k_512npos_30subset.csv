@@ -1,0 +1,33 @@
+#[Succeeded /Failed / Skipped / Total] 22 /5 / 3 / 30
+#Total time: 689.7940745353699 seconds for 30 samples
+original,perturbed,True,Pred_original,Pred_perturbed,success,time,n_positions
+Christopher Reeve had an accident.,Chris‌topher​ Ree‌​ve ‍ha‌d a​n‍ ac​c​ident.,1,1,1,False,24.40127682685852,10
+Bacteria is winning the war against antibiotics.,,0,1,-1,False,-1.0,-1
+15 million tonnes of rubbish are produced daily in Cairo.,,1,0,-1,False,-1.0,-1
+Pennsylvania has the biggest Amish community in the U.S.,‍‌Pe​nnsylvania has ​the b‍igge​s​t Amish ‍community in​ ‌the U.S.,1,1,0,True,25.31831669807434,10
+Security forces were on high alert after a campaign marred by violence.,Security forc‌​es wer‍e​ on​ high‌ alert after a campaig‌n m‍arred ​by ‍violence.,0,0,1,True,26.196309566497803,10
+The Israel-Egypt Peace Agreement was signed in 1979.,The Israel​-Egyp​t ‍Pea‌​​c​e A‍greement wa​s sig​ned in 1979.,0,0,1,True,24.014692544937134,10
+Spears is to divorce from Kevin Federline.,Sp‍‌‌ears is to‍ di​‍vor‌ce f‌rom‌ Ke‍vin Federline.,0,0,1,True,25.597750186920166,10
+Wales to host 2010 Ryder Cup.,W​​al​‌es to​​‌‌ hos‌t 2010 Ryder‌ Cup.,0,0,1,True,26.83225131034851,10
+Steve Jobs worked for Apple.,Stev​‌e ​‍Jobs​​ ​w​o‌rke‌d for Apple.,0,0,1,True,25.8491952419281,10
+The Raisani tribe resides in Pakistan.,​The Raisani tribe​ r​​eside​​s ​in Pakista‍n.,0,0,1,True,27.326369524002075,10
+Doctors Without Borders is an international aid organization.,D‌oct‍ors Wit​ho​ut‌ Borde‌r‌s is‍ ​an intern​ational aid organization.,0,0,1,True,39.45034599304199,10
+"In a bowl, whisk together the egg, sugar and vanilla until light in color.","I​n a bowl‍, whisk together ​the ‍egg, sugar a​nd vanil‌la un​til light in‍‌ color.",1,1,0,True,25.06336259841919,10
+2.7 percent of the people infected with HIV live in Africa.,2​.7 perce‍​nt‌ o‍​f th‌e people i‍nf​ected with‍ HIV live in Africa.,1,1,0,True,26.517171621322632,10
+"Jack Kevorkian is the real name of ""Dr. Death"".","Jack Kev‍‍orkian i‌s ​the​ r‌eal nam‍​e​ of ""Dr. De​ath"".",0,0,1,True,36.893460512161255,10
+Procter and Gamble spends $1.8 billion for Research and Development.,Pr‌oct​er and Gambl‍‍‌​e ‍spends $1.8‌ billion ‌for Research and ​Development.,0,0,1,True,19.58824396133423,10
+The U.S. military evacuated U.S. citizens.,The​ U.S. military ev​acuated​ ‌U.S.​‌ c‍‌‌itizens.,1,1,0,True,19.129538774490356,10
+Mice fed with red wine lived longer despite a fatty diet.,Mice‌​ fed‌ wi‍t‌h ‍red ‌w​ine ​l‍ived longer despite a fatty diet.,1,1,0,True,18.713175296783447,10
+Charles de Gaulle died in 1970.,‌C​h‌arles‍​​ de Gaull‌‌e d​i​ed in 1970.,0,0,1,True,23.55040216445923,10
+France participates in Euro 2004.,​F‌ra‍nce par‍tic​i‌pates ​‌i‌n Euro 2004.,0,0,1,True,27.879409551620483,10
+President Fujimori was re-elected in 1995.,P​resi​dent Fu​ji‌mori ‌w‌as r‍e​​-elected in 19​95.,1,1,1,False,19.072885513305664,10
+"Hepburn's diamond and sapphire brooch fetched $120,000.","He​pburn's d​iamond an​d ‌sap‌‌​phir​‌e brooch fetche​d $120,000.",0,0,1,True,27.81600594520569,10
+Huckaby is accused of killing Sandra Cantu.,Huckaby is accuse​‍d‍ of kil​li​ng ​​‌Sa‍n​dra Cantu.,0,0,1,True,29.389610290527344,10
+Eljvir Duka comes from Albania.,Eljvir D​u​ka ​‌‍comes‍‍ ‌f‍rom Al​bania.,0,0,1,True,29.467021465301514,10
+"""The Osbournes"" is the name of a reality show starring Ozzy Osbourne.","""T​he Osbo‌ur‍nes‍"" ​is the nam‌e of a ‌re​ali​ty s‍how starring Ozzy Osbourne.",0,0,1,True,21.433576345443726,10
+Sky News offices are close to the Bank of England.,Sky ‌​News ‍offices are​ ​close ‌to​ t​he Bank o​f‍ England.,1,1,1,False,22.900238037109375,10
+The San Diego Padres won the game against the St. Louis Cardinals.,The‍ San Die‍​go Padr‌es w‌on the gam‌e against t​h‍e S‌t.‍ Louis Cardinals.,1,1,0,True,23.914384365081787,10
+Unocal said it would evaluate the CNOOC offer.,​Unocal s​ai‌d ‌it wou​ld ev​aluat​e the​​ CNOOC of‌fer.,1,1,1,False,26.446329593658447,10
+Fallujah and Baqubah are Iraqi cities.,Fall‌u‌jah a‌nd B‌aqu​ba‍h ar‌e I‌​raqi ​cities.,0,0,1,True,23.122212648391724,10
+Chinese engineers working on long-term projects in India can easily obtain visas.,,1,0,-1,False,-1.0,-1
+A daily commuter flight crashed in Buffalo.,A‍ ‌dail​y com‍mute‍r f‍light crash​​ed in B‍uf​falo.,1,1,1,False,23.28532576560974,10

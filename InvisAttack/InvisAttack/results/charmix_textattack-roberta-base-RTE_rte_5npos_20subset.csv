@@ -1,0 +1,21 @@
+original,perturbed,True,Pred_original,Pred_perturbed,success,time,n_positions
+Christopher Reeve had an accident.,Christopher Reeve had ‎an accident︃.‎‎︃,1,1,1,False,34.07049036026001,5
+Bacteria is winning the war against antibiotics.,,0,1,-1,False,-1.0,-1
+15 million tonnes of rubbish are produced daily in Cairo.,,1,0,-1,False,-1.0,-1
+Pennsylvania has the biggest Amish community in the U.S.,Pennsylvania󠀜 has the bigges󠀜t A󠀜mish community in ︅the U.S.,1,1,0,True,29.05681586265564,4
+Security forces were on high alert after a campaign marred by violence.,Security forces were on high alert after a campaign marred by viole‫nce.,0,0,1,True,2.0683765411376953,1
+The Israel-Egypt Peace Agreement was signed in 1979.,The Israel-Egypt Peace Agreement was signed in 1979.,0,0,1,True,2.5344080924987793,1
+Spears is to divorce from Kevin Federline.,⁠Spears is to divorce from Kevin Fed‏erli󠁖ne.,0,0,1,True,18.615785837173462,4
+Wales to host 2010 Ryder Cup.,Wales to host 2010 Ryder Cup.,0,0,1,True,2.2584056854248047,1
+Steve Jobs worked for Apple.,Steve Jobs worked for Ap‮ple.,0,0,1,True,1.8481776714324951,1
+The Raisani tribe resides in Pakistan.,The Raisani tri󠅶be resi󠆾des in Pakistan.,0,0,1,True,4.712268352508545,2
+Doctors Without Borders is an international aid organization.,Docto󠅾rs Without Borders is an international aid organizat󠁠ion.,0,0,1,True,4.834483861923218,2
+"In a bowl, whisk together the egg, sugar and vanilla until light in color.","In‫ a bowl, wh﻿i﻿sk together the️ egg, sugar and vanilla until light in color.️",1,1,1,False,10.159443616867065,5
+2.7 percent of the people infected with HIV live in Africa.,2.7 percent of the people infected with HIV live in Afric​󠄔a.󠄔,1,1,1,False,10.612583637237549,5
+"Jack Kevorkian is the real name of ""Dr. Death"".","Jack Kevorkian is the real name of ""D󠅃r. Death"".",0,0,1,True,3.0297658443450928,1
+Procter and Gamble spends $1.8 billion for Research and Development.,Procter and Gamble spends $1.8 billion for Research and Develo󠅠pment.,0,0,1,True,2.531479597091675,1
+The U.S. military evacuated U.S. citizens.,The U.S. military evacuated U.S. citiz⁩ens.󠀖,1,1,0,True,4.362671852111816,2
+Mice fed with red wine lived longer despite a fatty diet.,Mice fed with red wine lived longer despite a fatty diet.,1,1,0,True,1.7021291255950928,1
+Charles de Gaulle died in 1970.,Charles de Gaulle died in 1970.,0,0,1,True,2.995283842086792,1
+France participates in Euro 2004.,France participates in Euro 20‬04.,0,0,1,True,2.363417625427246,1
+President Fujimori was re-elected in 1995.,President︃ Fujimori w󠅋as re-elected i󠁫n 19​95.󠁖,1,1,1,False,19.858604907989502,5

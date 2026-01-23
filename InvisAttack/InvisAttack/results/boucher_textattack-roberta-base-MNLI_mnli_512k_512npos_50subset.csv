@@ -1,0 +1,53 @@
+#[Succeeded /Failed / Skipped / Total] 41 /1 / 8 / 50
+#Total time: 875.8334264755249 seconds for 50 samples
+original,perturbed,True,Pred_original,Pred_perturbed,success,time,n_positions
+Everyone really likes the newest benefits ,E‍veryone r​​​eally li‍kes the ​newes‍​t b‍en‌efits ,1,1,0,True,19.48755979537964,10
+The Government Executive articles housed on the website are not able to be searched.,The‌ Governm​en‍t Exec‍utive arti‌cles‌ housed on the website are not‍ a​bl​e to be sea​rched.,0,0,1,True,19.30461812019348,10
+"I like him for the most part, but would still enjoy seeing someone beat him.","I like​ him for​ t‍he mo​st pa‍​r​t, but ​woul​d still enjoy seeing someone​ beat him.",2,2,1,True,19.485056400299072,10
+My favorite restaurants are always at least a hundred miles away from my house. ,My ​favorite r‌estaur‌ants are alwa​ys​ at leas‍t a hu​ndred ​m​iles away f‌rom my house. ,0,0,1,True,19.274268865585327,10
+I know exactly.,I k‌n​‍o​w‍​​ ​exa​ctly.,0,0,1,True,19.07930564880371,10
+We have plenty of space in the landfill.,We ha​v​e ​‍ple​nty of sp​​ace‌ in​ the ​landfill.,0,0,1,True,19.277839183807373,10
+I did that all through college but it never worked ,I did t​hat all thr‍ough co​llege b‍u‍t‍​ it nev‌er wor‍ked ,0,0,1,True,19.22551393508911,10
+Most of Mrinal Sen's work can be found in European collections.,‍Mos​t of M‍rinal Se​‌n's ​work c​an be fo‍und i‌n E​uropean collections.,1,1,0,True,19.451005220413208,10
+THe strike price could be $8.,THe s​‌trik​e​​ pr​ice ​co‌‍‌uld be $8.,0,0,1,True,19.393688678741455,10
+Would you rise up and defeaat all evil lords in the town?,Would you‌ r‌‌i‌​se u​p ​and d‌efeaat all e‍vil lords ​in the town?,1,1,0,True,19.2421612739563,10
+"Go downwards to one of the gates, all of which will lead you into the cathedral.","Go ​downwards to one​ of ​the gate​​s, ​all of wh‌ich wil‌l lea‌d y‍ou into the cathedral.",0,0,2,True,19.394760608673096,10
+The Tamils' bhakti movement froze the previously warm ritual of Hinduism.,The Tamils​' ‍​bhakti movement f​ro​ze​‍ th​e previously warm ritual o​​f Hinduism.,0,0,2,True,19.210858583450317,10
+Everyone involved was the same age.,​Ev‍​eryone ​involve‌​d​ was the sa​me‍ a‌ge.,0,0,1,True,19.634886741638184,10
+Severn said the people were not welcome there.,​Severn sai‌d the people ​w‍er​​e​ not ‍‌welco​me there.,2,2,1,True,19.18070125579834,10
+We don't loan a lot of money.,,1,0,-1,False,-1.0,-1
+I don't know how cold it got last night.,,2,1,-1,False,-1.0,-1
+I need a way to add something extra.,I need a w‌​ay to‌ ‍ad​d ​someth‍in‍g‍ ex‌tra.,2,2,1,True,19.1995530128479,10
+Sometimes it is amusing to see what the hologram creates.,​Someti‌mes​ i​t is am​using to s​‌ee​ what th‌e hologram cr​eates.,2,2,1,True,19.409835815429688,10
+Gross national saving was highest this year.,G​‌ross national s‍avin​‌g‍​ was ‌‌highes​t this year.,1,1,0,True,19.254972457885742,10
+The amount of lost mail is huge and really impacts mail volume,The​ amount ​of lost mail ​is hu​g‌e an‌d rea​lly im​pacts ma​i​l volume,0,0,1,True,19.376039028167725,10
+"You don't want to push the button lightly, but rather punch it hard.",,1,2,-1,False,-1.0,-1
+It has a buffet.,I​‌t​​ ​‍​‍​h‌as a buffet.,2,2,0,True,19.30875873565674,10
+Clinton said that Monica Lewinsky made unwanted sexual advances during her time as a journalist in the White House. ,Clin‍ton said that ‌​Mon‍i​ca Le​wins‌ky ma‍de unwanted sexual advances dur‍ing her time as a journ‍alist in the White House. ,1,1,0,True,19.19842267036438,10
+Leading organizations want to be sure their employees are safe.,L‍ea‌ding​ or​g‍anizatio​ns wa‌nt t‍o be sure t​heir employ‌ees are safe.,1,1,0,True,19.28512692451477,10
+"No, they wouldn't go there.","No, ‌they would​n‍'t ‌​g‌o the​​re.",1,1,2,True,19.128140926361084,10
+This is how things are and there are no apologies about it.,,0,1,-1,False,-1.0,-1
+Pope John Paul II also visited in 1983.,Pop​e Joh​n ​‍Pau​l‌​ I​​I a​lso visited in 1983.,1,1,0,True,19.247772693634033,10
+Tourism is not very big in Spain.,To‍ur‍ism is not‌ v‌er‍y ‌big ​in‌‌ S​pain.,0,0,1,True,19.3378746509552,10
+She had changed a lot since the last time we'd seen her.,She ‌had changed a l​ot si‍n‍ce the las​‍​t t‌ime we'd see‌n ​her.,1,1,0,True,19.13874650001526,10
+I cannot wait for it to happen.,I cann‍‍​​ot wa​​it​ fo​r it t‌o ​happen.,1,1,0,True,19.24659752845764,10
+The 1931 Malay census was an alarm bell.,​T‌he 193‌1 Malay censu‍​s​ ​was ​‍an ala‌rm bell.,2,2,1,True,20.75952386856079,10
+Many youth are lazy.,Many‍ y‍‌o​ut​h​​​ a​r​e lazy.,2,2,1,True,23.241838693618774,10
+Interest rates should increase to increase saving.,I​ntere​​st rate‍s ​shou​l​d i​‌n​crease to increase saving.,0,0,1,True,23.50877356529236,10
+There is a British publication called the Sun.,Ther‌​e is a B‌rit​ish pu‌bl‍icatio‍​n ‌call​ed the Sun.,2,2,0,True,23.555857181549072,10
+He loved how peaceful the village was.,He loved h‌​ow p‍e​ace‍fu‌l the ​v‌​​illage was.,2,2,1,True,23.433244466781616,10
+The slopes between the Vosges and Rhine Valley are the only place appropriate for vineyards.,The slopes​ between​ the Vo​sges a‍nd​ Rhine Val‍ley ‌are th​e o​nly place appropriate ​for vineyards.,1,1,0,True,23.71164035797119,10
+These deviations mostly involve failure to apply software updates in a timely manner.,Thes​e​ deviations mostl‍y inv‌olve failu‍re to apply‌ sof‍tw‌‌are​ updates in a timely manner.,1,1,1,False,23.79856014251709,10
+"Joan of Arc sacrificed her life at Rouen, which became an enduring symbol of opposition to tyranny.","Joan of Arc sacrif‍i​ced ‌her l‌if​e at Rouen, which bec​ame an end‍uring symb​ol of oppo‍sit‍ion to tyranny.",2,2,1,True,23.48404359817505,10
+Senior Executive's have been studies on various aspects to reach the expectations.,,2,1,-1,False,-1.0,-1
+It's impossible to have a plate hand-painted to your own design in Hong Kong.,It's‌ i‍mpos​sible to have a plat‌e ‌hand-p‍ainted t​o yo‌ur own ‍d​esign in Hong Kong.,0,0,2,True,23.59626007080078,10
+Jewelry and duty-free shops are an interesting place to buy goods.,J​ew‌elry and duty​-‌fr​ee shops ar‍e​ a​n interesti‍ng p​lace to buy goods.,1,1,2,True,23.56669855117798,10
+Jobs never held onto an idea for long.,,0,2,-1,False,-1.0,-1
+Democracies probably won't go to war unless someone attacks them on their soil,,2,1,-1,False,-1.0,-1
+"There is no information on the mentality of the man, extraordinary or not, contained within the thin-paged book. ","There is ​n‍o inform​ation o‍n the mentality ​o‍f‍ the man, ex​traordinary ‍or not, contained wit‍hin the thin-paged book. ",0,0,2,True,23.664778232574463,10
+The military didn't pay for her education.,The‌ milit​ary di‌dn't‌ p‍​a‍y‍ ‌for her‌ education.,0,0,2,True,23.517927646636963,10
+These men filed their midterm exams from home. ,,0,1,-1,False,-1.0,-1
+Not many couples with kids can save up for retirement.,No‌t​ m‍any couples wi‍th ​k​ids can s‍a​ve​​ up for retirement.,2,2,0,True,23.4399836063385,10
+"They dodged the draft, I'll have you know.","​T‍hey d​od​​ged th​e draf​‍t, I'll h​a​ve you know.",2,2,1,True,23.28398895263672,10
+Lincoln took his hat off.,Li‍‍nc‍oln took ​‌​‍​his‌ hat off.,2,2,0,True,23.37313938140869,10
+The stock market can experience much worse damage. ,The s​tock m‍ar​ke‌t c​an experience ​muc​h wors​‌​e damage. ,2,2,1,True,23.328027725219727,10
