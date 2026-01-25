@@ -16,3 +16,5 @@ __pycache__/
 InvisAttack/Charmer/
 InvisAttack/imperceptible/
 InvisAttack/TextAttack/
+
+wheelhouse/*
