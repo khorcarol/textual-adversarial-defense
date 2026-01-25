@@ -38,3 +38,5 @@ wheel.packages = ["src/textual_adversarial_defense"]
 [tool.setuptools.package-data]
 textual_adversarial_defense = ["../../../utils/**/*.json"]
 
+[tool.cibuildwheel]
+before-all = "uname -a"

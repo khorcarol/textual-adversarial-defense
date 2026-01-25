@@ -16,7 +16,7 @@ set(FRIBIDI_SOURCE_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-src")
 set(FRIBIDI_BUILD_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-build")
 set(FRIBIDI_INSTALL_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-install")
 # Meson installs to lib/x86_64-linux-gnu on Linux
-set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/x86_64-linux-gnu/libfribidi.a")
+set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/libfribidi.a")
 set(FRIBIDI_INCLUDE_PATH "${FRIBIDI_INSTALL_DIR}/include")
 
 # Download if not already present
@@ -56,6 +56,7 @@ add_custom_command(OUTPUT "${FRIBIDI_LIB_PATH}"
     
     COMMAND ${MESON_EXECUTABLE} setup 
         --prefix=${FRIBIDI_INSTALL_DIR}
+        --libdir=lib
         --default-library=static
         -Dtests=false
         -Ddocs=false
@@ -107,7 +108,7 @@ target_include_directories(DefensesLib PUBLIC
 FetchContent_Declare(
   json
   GIT_REPOSITORY https://github.com/nlohmann/json.git
-  GIT_TAG v3.11.2
+  GIT_TAG v3.11.3
 )
 
 FetchContent_MakeAvailable(json)
