@@ -1,5 +1,4 @@
 import pytest
-import python.generate_attack as generate_attack
 
 try:
     import textual_adversarial_defense
@@ -16,13 +15,11 @@ class TestBidiSanitizer:
         """Test that RLO segments are correctly reordered."""
         pipeline = textual_adversarial_defense._pipeline.Pipeline()
         pipeline.add_bidi_sanitizer()
-        pipeline.add_invisible_sanitizer()
 
         # Input: RLO + 'd','l','r','o','W' + PDF
         # Expected: RLO + 'W','o','r','l','d' + PDF (reversed)
-        attack = generate_attack.BidiAttack(perturbation_budget=10)
-        text = attack.perturb("dlroW")
+        text = chr(0x202E) + "dlroW" + chr(0x202C)
         result = pipeline.sanitize(text)
 
-        expected = "dlroW"
+        expected = chr(0x202E) + "World" + chr(0x202C)
         assert result == expected, f"Expected '{expected}', got '{result}'"

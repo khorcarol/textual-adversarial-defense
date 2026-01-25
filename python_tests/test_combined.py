@@ -1,14 +1,4 @@
 import pytest
-import random
-import string
-from python.generate_attack import (
-    TagAttack,
-    VariationSelectorAttack,
-    InvisibleCharAttack,
-    HomoglyphAttack,
-    DeletionCharAttack,
-    BidiAttack,
-)
 
 try:
     import textual_adversarial_defense
