@@ -1,8 +1,0 @@
-build/
-.vscode
-
-
-*.so
-
-__pycache__/
-.test_wheel_env/
