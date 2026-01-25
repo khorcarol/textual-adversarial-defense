@@ -1,3 +1,7 @@
+if(MSVC)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+endif()
+
 cmake_minimum_required(VERSION 3.14)
 project(my_project)
 
