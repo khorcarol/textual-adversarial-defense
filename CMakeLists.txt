@@ -6,10 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 
-# Find executables first
-find_program(MESON_EXECUTABLE meson REQUIRED)
-find_program(NINJA_EXECUTABLE ninja REQUIRED)
-
 # Download fribidi manually (bypass CMake step since it uses Meson)
 set(FRIBIDI_VERSION "1.0.16")
 set(FRIBIDI_SOURCE_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-src")
@@ -20,7 +16,10 @@ set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/libfribidi.a")
 set(FRIBIDI_INCLUDE_PATH "${FRIBIDI_INSTALL_DIR}/include")
 
 # Download if not already present
-if(NOT EXISTS "${FRIBIDI_SOURCE_DIR}")
+    if(NOT EXISTS "${FRIBIDI_SOURCE_DIR}")
+    # Find executables first
+    find_program(MESON_EXECUTABLE meson REQUIRED)
+    find_program(NINJA_EXECUTABLE ninja REQUIRED)
     message(STATUS "Downloading fribidi v${FRIBIDI_VERSION}...")
     file(DOWNLOAD
         "https://github.com/fribidi/fribidi/releases/download/v${FRIBIDI_VERSION}/fribidi-${FRIBIDI_VERSION}.tar.xz"
