@@ -77,6 +77,9 @@ add_library(fribidi STATIC IMPORTED)
 set_target_properties(fribidi PROPERTIES
     IMPORTED_LOCATION "${FRIBIDI_LIB_PATH}"
 )
+# Static linking declaration(needed on Windows)
+target_compile_definitions(fribidi INTERFACE FRIBIDI_LIB_STATIC)
+
 add_dependencies(fribidi fribidi_build)
 
 # --- Core Library Setup ---
