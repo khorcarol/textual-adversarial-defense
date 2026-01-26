@@ -8,8 +8,3 @@ Building defenses for imperceptible textual attacks against NLP models. Work is 
 - `python/` Python bindings
 - `tests/` Unit tests
 
-#### Getting Started
-
-To build the project, run 
-
-`cd build && cmake .. && make && cd tests && ctest --output-on-failure `
