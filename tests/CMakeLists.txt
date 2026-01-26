@@ -28,6 +28,12 @@ foreach(test_target ${TEST_TARGETS})
         DefensesLib
         GTest::gtest_main
     )
+
+    if(MSVC)
+        set_property(TARGET ${test_target} PROPERTY
+        MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+        )
+    endif()
     
     gtest_discover_tests(${test_target})
 endforeach()

@@ -1,9 +1,14 @@
+cmake_minimum_required(VERSION 3.15)
+project(my_project)
+
+if(POLICY CMP0091)
+cmake_policy(SET CMP0091 NEW)
+endif()
+
 if(MSVC)
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
 endif()
 
-cmake_minimum_required(VERSION 3.14)
-project(my_project)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -15,8 +20,12 @@ set(FRIBIDI_VERSION "1.0.16")
 set(FRIBIDI_SOURCE_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-src")
 set(FRIBIDI_BUILD_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-build")
 set(FRIBIDI_INSTALL_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-install")
-# Meson installs to lib/x86_64-linux-gnu on Linux
-set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/libfribidi.a")
+
+if(WIN32)
+    set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/fribidi.lib")
+else()
+    set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/libfribidi.a")
+endif()
 set(FRIBIDI_INCLUDE_PATH "${FRIBIDI_INSTALL_DIR}/include")
 
 # Download if not already present
@@ -53,6 +62,14 @@ set(FRIBIDI_INCLUDE_PATH "${FRIBIDI_INSTALL_DIR}/include")
 endif()
 
 # Build fribidi with Meson - use add_custom_command to generate the library file
+set(FRIBIDI_MESON_ARGS "")
+if(MSVC)
+    set(FRIBIDI_MESON_ARGS
+    --c_args=/MD
+    --cpp_args=/MD
+    )
+endif()
+
 add_custom_command(OUTPUT "${FRIBIDI_LIB_PATH}"
     COMMAND ${CMAKE_COMMAND} -E make_directory ${FRIBIDI_BUILD_DIR}
     COMMAND ${CMAKE_COMMAND} -E make_directory ${FRIBIDI_INSTALL_DIR}
@@ -63,6 +80,7 @@ add_custom_command(OUTPUT "${FRIBIDI_LIB_PATH}"
         --default-library=static
         -Dtests=false
         -Ddocs=false
+        ${FRIBIDI_MESON_ARGS}
         ${FRIBIDI_BUILD_DIR}
         ${FRIBIDI_SOURCE_DIR}
     
@@ -100,6 +118,11 @@ add_library(DefensesLib
 )
 
 set_target_properties(DefensesLib PROPERTIES POSITION_INDEPENDENT_CODE ON)
+if(MSVC)
+set_property(TARGET DefensesLib PROPERTY
+MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+)
+endif()
 
 # Add dependency AFTER fribidi_build is defined
 add_dependencies(DefensesLib fribidi_build)
@@ -138,5 +161,11 @@ pybind11_add_module(_pipeline
 
 target_link_libraries(_pipeline PRIVATE DefensesLib)
 add_dependencies(_pipeline fribidi_build)
+
+if(MSVC)
+set_property(TARGET _pipeline PROPERTY
+MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+)
+endif()
 
 install(TARGETS _pipeline LIBRARY DESTINATION textual_adversarial_defense)
