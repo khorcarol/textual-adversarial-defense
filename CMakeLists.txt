@@ -65,8 +65,8 @@ endif()
 set(FRIBIDI_MESON_ARGS "")
 if(MSVC)
     set(FRIBIDI_MESON_ARGS
-    --c_args=/MD
-    --cpp_args=/MD
+    "-Dc_args=/MD"
+    "-Dcpp_args=/MD"
     )
 endif()
 
