@@ -21,14 +21,8 @@ set(FRIBIDI_SOURCE_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-src")
 set(FRIBIDI_BUILD_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-build")
 set(FRIBIDI_INSTALL_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-install")
 
-if(MSVC)
-    set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/fribidi.lib")
-elseif(WIN32)
-    # MinGW/Clang on Windows typically produce lib*.a
-    set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/libfribidi.a")
-else()
-    set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/libfribidi.a")
-endif()
+set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/libfribidi.a")
+
 
 set(FRIBIDI_INCLUDE_PATH "${FRIBIDI_INSTALL_DIR}/include")
 # Find executables first
