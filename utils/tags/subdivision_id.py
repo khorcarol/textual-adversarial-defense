@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 import os
 import string
 
+
 # Expand tokens like 'ad02~8', 'zwmv~w', 'alpq~r'
 def expand_token(token):
     if "~" not in token:
@@ -22,6 +23,7 @@ def expand_token(token):
         for c in range(alphabet.index(start[-1]), alphabet.index(end[0]) + 1):
             expanded.append(f"{start[:-1]}{alphabet[c]}{end[1:]}")
     return expanded
+
 
 # Load the XML file
 base_dir = os.path.dirname(__file__)
@@ -46,8 +48,8 @@ if deprecated is not None and deprecated.text:
         code for token in tokens for code in expand_token(token)
     ]
 
-
-
+all = regular_subdivision_ids + deprecated_subdivision_ids
 with open("subdivision_ids.json", "w") as f:
-    json.dump(regular_subdivision_ids, f)
-    json.dump(deprecated_subdivision_ids, f)
+    # json.dump(regular_subdivision_ids, f)
+    # json.dump(deprecated_subdivision_ids, f)
+    json.dump(all, f)
