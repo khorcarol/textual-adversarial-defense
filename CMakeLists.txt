@@ -21,18 +21,22 @@ set(FRIBIDI_SOURCE_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-src")
 set(FRIBIDI_BUILD_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-build")
 set(FRIBIDI_INSTALL_DIR "${CMAKE_BINARY_DIR}/_deps/fribidi-install")
 
-if(WIN32)
+if(MSVC)
     set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/fribidi.lib")
+elseif(WIN32)
+    # MinGW/Clang on Windows typically produce lib*.a
+    set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/libfribidi.a")
 else()
     set(FRIBIDI_LIB_PATH "${FRIBIDI_INSTALL_DIR}/lib/libfribidi.a")
 endif()
+
 set(FRIBIDI_INCLUDE_PATH "${FRIBIDI_INSTALL_DIR}/include")
+# Find executables first
+find_program(MESON_EXECUTABLE meson REQUIRED)
+find_program(NINJA_EXECUTABLE ninja REQUIRED)
 
 # Download if not already present
     if(NOT EXISTS "${FRIBIDI_SOURCE_DIR}")
-    # Find executables first
-    find_program(MESON_EXECUTABLE meson REQUIRED)
-    find_program(NINJA_EXECUTABLE ninja REQUIRED)
     message(STATUS "Downloading fribidi v${FRIBIDI_VERSION}...")
     file(DOWNLOAD
         "https://github.com/fribidi/fribidi/releases/download/v${FRIBIDI_VERSION}/fribidi-${FRIBIDI_VERSION}.tar.xz"
