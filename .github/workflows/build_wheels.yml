@@ -32,17 +32,15 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.20.0
         env:
-          # CIBW_BUILD: "cp39-* cp310-* cp311-* cp312-*"
-          CIBW_BUILD: "cp311-*"
+          CIBW_BUILD: "cp39-* cp310-* cp311-* cp312-*"
+          # CIBW_BUILD: "cp311-*"
           
           CIBW_ARCHS_LINUX: "x86_64 aarch64"
+          CIBW_ARCHS_WINDOWS: "AMD64 ARM64"
           CIBW_SKIP: "pp* *-win32"
           
           CIBW_TEST_REQUIRES: "pytest"
-          CIBW_TEST_COMMAND: >
-            python -c "import textual_adversarial_defense; print('pkg', textual_adversarial_defense.__file__); print('_pipeline attr', textual_adversarial_defense._pipeline)" &&
-            python -c "import importlib; import textual_adversarial_defense; importlib.import_module('textual_adversarial_defense._pipeline')" &&
-            pytest {project}/python_tests/
+          CIBW_TEST_COMMAND: "pytest {project}/python_tests/"
 
           CIBW_BEFORE_BUILD: "python -m pip install -U meson ninja"
           CIBW_ENVIRONMENT_WINDOWS: >
