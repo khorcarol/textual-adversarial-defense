@@ -46,7 +46,7 @@ jobs:
 
           CIBW_BEFORE_BUILD: "python -m pip install -U meson ninja"
           CIBW_ENVIRONMENT_WINDOWS: >
-            CMAKE_GENERATOR=Visual Studio 17 2022
+            CMAKE_GENERATOR="Visual Studio 17 2022"
             CC=cl
             CXX=cl
           
