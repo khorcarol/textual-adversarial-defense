@@ -46,9 +46,10 @@ jobs:
 
           CIBW_BEFORE_BUILD: "python -m pip install -U meson ninja"
           CIBW_ENVIRONMENT_WINDOWS: >
-            CMAKE_GENERATOR=Ninja
-            CMAKE_BUILD_TYPE=Release
-
+            CMAKE_GENERATOR=Visual Studio 17 2022
+            CC=cl
+            CXX=cl
+          
       - name: Upload wheels as artifacts
         uses: actions/upload-artifact@v4
         with:
