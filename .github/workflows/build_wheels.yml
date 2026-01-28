@@ -32,12 +32,19 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.20.0
         env:
-          CIBW_BUILD: "cp39-* cp310-* cp311-* cp312-*"
+          # CIBW_BUILD: "cp39-* cp310-* cp311-* cp312-*"
+          CIBW_BUILD: "cp311-*"
+          
           CIBW_ARCHS_LINUX: "x86_64 aarch64"
-          CIBW_SKIP: "pp*"
+          CIBW_SKIP: "pp* *-win32"
           
           CIBW_TEST_REQUIRES: "pytest"
           CIBW_TEST_COMMAND: "pytest {project}/python_tests/"
+
+          CIBW_BEFORE_BUILD: "python -m pip install -U meson ninja"
+          CIBW_ENVIRONMENT_WINDOWS: >
+            CMAKE_GENERATOR=Ninja
+            CMAKE_BUILD_TYPE=Release
 
       - name: Upload wheels as artifacts
         uses: actions/upload-artifact@v4

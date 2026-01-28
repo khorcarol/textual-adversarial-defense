@@ -75,6 +75,7 @@ add_custom_command(OUTPUT "${FRIBIDI_LIB_PATH}"
     COMMAND ${CMAKE_COMMAND} -E make_directory ${FRIBIDI_INSTALL_DIR}
     
     COMMAND ${MESON_EXECUTABLE} setup 
+        --reconfigure
         --prefix=${FRIBIDI_INSTALL_DIR}
         --libdir=lib
         --default-library=static
