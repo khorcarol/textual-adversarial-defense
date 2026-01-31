@@ -1,5 +1,7 @@
+import homoglyphs
 from pathlib import Path
 import json
+from bidi.algorithm import get_display
 
 """
 ----------------
@@ -11,19 +13,13 @@ Bidi Attack Test
 # https://github.com/MeirKriheli/python-bidi
 
 
-def python_bidi(pert):
-    from bidi.algorithm import get_display
-
+def python_bidi(pert, pipeline=None):
     disp = get_display(pert)
     return disp
 
 
-def cpp_bidi(pert):
-    import textual_adversarial_defense
-
-    p = textual_adversarial_defense._pipeline.Pipeline()
-    p.add_bidi_sanitizer()
-    d2 = p.sanitize(pert)
+def cpp_bidi(pert, pipeline=None):
+    d2 = pipeline.sanitize(pert)
     return d2
 
 
@@ -35,7 +31,7 @@ Deletion Attack Test
 # TODO: cpp regex
 
 
-def python_del(pert):
+def python_del(pert, pipeline=None):
     res = []
     for c in pert:
         if c != "\x08":
@@ -50,12 +46,8 @@ def python_del(pert):
 #     return new_str
 
 
-def cpp_del(pert):
-    import textual_adversarial_defense
-
-    p = textual_adversarial_defense._pipeline.Pipeline()
-    p.add_deletion_sanitizer()
-    d2 = p.sanitize(pert)
+def cpp_del(pert, pipeline=None):
+    d2 = pipeline.sanitize(pert)
     return d2
 
 
@@ -67,27 +59,21 @@ Homoglyph Attack Test
 
 
 # TODO: currently these use confusables.json
-def python_homoglyph_homoglyphs(pert):
-    import homoglyphs
-
+def python_homoglyph_homoglyphs(pert, pipeline=None):
     hg = homoglyphs.Homoglyphs()
     return hg.to_ascii(pert)
 
 
 # TODO: currently these use confusables.json
-def python_homoglyph_decancer(pert):
+def python_homoglyph_decancer(pert, pipeline=None):
     from decancer_py import CuredString, parse
 
     parsed: CuredString = parse(pert)
     return parsed.__str__()
 
 
-def cpp_homoglyph(pert):
-    import textual_adversarial_defense
-
-    p = textual_adversarial_defense._pipeline.Pipeline()
-    p.add_homoglyph_sanitizer()
-    d = p.sanitize(pert)
+def cpp_homoglyph(pert, pipeline=None):
+    d = pipeline.sanitize(pert)
     return d
 
 
@@ -97,7 +83,6 @@ Invisible Attack Test
 ----------------
 """
 # https://github.com/SAFE-MCP/safe-mcp/blob/main/mitigations/SAFE-M-4/README.md
-import unicodedata
 
 
 class UnicodeSanitizer:
@@ -155,16 +140,12 @@ class UnicodeSanitizer:
         return "".join(cleaned)
 
 
-def python_invisible_mcp(pert):
+def python_invisible_mcp(pert, pipeline=None):
     return UnicodeSanitizer.sanitize(pert)
 
 
-def cpp_invisible(pert):
-    import textual_adversarial_defense
-
-    p = textual_adversarial_defense._pipeline.Pipeline()
-    p.add_invisible_sanitizer()
-    d = p.sanitize(pert)
+def cpp_invisible(pert, pipeline=None):
+    d = pipeline.sanitize(pert)
     return d
 
 
@@ -176,7 +157,7 @@ Tag Attack Test
 
 
 # https://aws.amazon.com/blogs/security/defending-llm-applications-against-unicode-character-smuggling/
-def python_tag_aws(input):
+def python_tag_aws(input, pipeline=None):
     return "".join(
         ch
         for ch in input
@@ -185,12 +166,8 @@ def python_tag_aws(input):
     )
 
 
-def cpp_tag(pert):
-    import textual_adversarial_defense
-
-    p = textual_adversarial_defense._pipeline.Pipeline()
-    p.add_tag_sanitizer()
-    d = p.sanitize(pert)
+def cpp_tag(pert, pipeline=None):
+    d = pipeline.sanitize(pert)
     return d
 
 
@@ -201,7 +178,7 @@ Variation Selector Attack Test
 """
 
 
-def _get_variation_selector_data():
+def _build_variation_selector_data():
     variation_selectors = set(range(0xFE00, 0xFE10))
     variation_selectors.update(range(0xE0100, 0xE01F0))
     resource_path = (
@@ -225,14 +202,14 @@ def _get_variation_selector_data():
     return variation_selectors, allowed_prev
 
 
-def python_variation_selector(pert):
-    variation_selectors, allowed_prev = _get_variation_selector_data()
+_VARIATION_SELECTORS, _ALLOWED_PREV = _build_variation_selector_data()
+def python_variation_selector(pert, pipeline=None):
     res = []
     prev_cp = None
     for ch in pert:
         cp = ord(ch)
-        if cp in variation_selectors:
-            allowed = allowed_prev.get(cp)
+        if cp in _VARIATION_SELECTORS:
+            allowed = _ALLOWED_PREV.get(cp)
             if prev_cp is not None and allowed is not None and prev_cp in allowed:
                 res.append(ch)
         else:
@@ -241,10 +218,6 @@ def python_variation_selector(pert):
     return "".join(res)
 
 
-def cpp_variation_selector(pert):
-    import textual_adversarial_defense
-
-    p = textual_adversarial_defense._pipeline.Pipeline()
-    p.add_variation_selector_sanitizer()
-    d = p.sanitize(pert)
+def cpp_variation_selector(pert, pipeline=None):
+    d = pipeline.sanitize(pert)
     return d

@@ -1,5 +1,4 @@
 from perf_measure.config import ATTACKS
-import homoglyphs
 from decancer_py import parse, CuredString
 import json
 import time
@@ -12,8 +11,8 @@ import random
 import csv
 from datetime import datetime
 
-lengths = [1000, 5000, 10000]
-perturbation_budget_percentages = [0.1, 0.2, 0.3, 0.4, 0.5]
+LENGTHS = [1000, 5000, 10000]
+PERTURBATION_BUDGET_PERCENTAGES = [0.1, 0.2, 0.3, 0.4, 0.5]
 
 
 """
@@ -28,15 +27,13 @@ def _make_text(length):
     return "".join(random.choice(alphabet) for _ in range(length))
 
 
-def _measure(func, perturbed_text, runs=5):
-    func(perturbed_text)
-
+def _measure(func, perturbed_text, runs=5, pipeline=None):
     times = []
     cpu_times = []
     for _ in range(runs):
         start = time.perf_counter()
         cpu_start = time.process_time()
-        func(perturbed_text)
+        func(perturbed_text, pipeline)
         cpu_end = time.process_time()
         end = time.perf_counter()
         times.append(end - start)
@@ -59,7 +56,10 @@ def _get_attack_config(attack):
 def _get_output_path(mode, args):
     results_dir = Path(__file__).resolve().parent / "results"
     results_dir.mkdir(parents=True, exist_ok=True)
-    filename = f"mode={args.mode}_length={args.length}_pct={args.pct}_attack={args.attack}_impl={args.impl}.csv"
+    length = getattr(args, "length", "all")
+    pct = getattr(args, "pct", "all")
+    impl = getattr(args, "impl", "all")
+    filename = f"mode={args.mode}_attack={args.attack}_impl={impl}.csv"
     return results_dir / filename
 
 
@@ -76,13 +76,28 @@ def run_benchmark(runs=5, seed=7, attack="deletion", args=None):
     ]
 
     attack_cls, impls = _get_attack_config(attack)
+    import textual_adversarial_defense
+
+    pipeline = textual_adversarial_defense._pipeline.Pipeline()
+    if attack == "variation":
+        pipeline.add_variation_selector_sanitizer()
+    elif attack == "tag":
+        pipeline.add_tag_sanitizer()
+    elif attack == "homoglyph":
+        pipeline.add_homoglyph_sanitizer()
+    elif attack == "bidi":
+        pipeline.add_bidi_sanitizer()
+    elif attack == "deletion":
+        pipeline.add_deletion_sanitizer()
+    elif attack == "invisible":
+        pipeline.add_invisible_sanitizer()
 
     with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(header)
-        for length in lengths:
+        for length in LENGTHS:
             base_text = _make_text(length)
-            for pct in perturbation_budget_percentages:
+            for pct in PERTURBATION_BUDGET_PERCENTAGES:
                 perturbation_budget = max(1, int(length * pct))
                 pert = attack_cls(perturbation_budget=perturbation_budget).perturb(
                     base_text
@@ -92,7 +107,7 @@ def run_benchmark(runs=5, seed=7, attack="deletion", args=None):
                     (
                         impl_time,
                         impl_cpu,
-                    ) = _measure(func, pert, runs=runs)
+                    ) = _measure(func, pert, runs=runs, pipeline=pipeline)
                     writer.writerow(
                         [
                             length,
@@ -105,41 +120,85 @@ def run_benchmark(runs=5, seed=7, attack="deletion", args=None):
                     )
 
 
-def run_single(
-    impl_name, length=1000, pct=0.1, runs=5, seed=7, attack="deletion", args=None
-):
+def run_single(impl_name, runs=5, seed=7, attack="deletion", args=None):
     random.seed(seed)
-    base_text = _make_text(length)
-    perturbation_budget = max(1, int(length * pct))
-    attack_cls, impls = _get_attack_config(attack)
-    pert = attack_cls(perturbation_budget=perturbation_budget).perturb(base_text)
-
-    func = impls[impl_name]
-    (
-        time_s,
-        cpu_s,
-    ) = _measure(func, pert, runs=runs)
-
     output_path = _get_output_path("single", args)
     header = [
         "impl",
         "length",
         "pct",
-        "time_ms",
-        "cpu_ms",
+        "rss_delta_mb",
+        "rss_peak_mb",
     ]
+    import textual_adversarial_defense
+
+    pipeline = textual_adversarial_defense._pipeline.Pipeline()
+    if attack == "variation":
+        pipeline.add_variation_selector_sanitizer()
+    elif attack == "tag":
+        pipeline.add_tag_sanitizer()
+    elif attack == "homoglyph":
+        pipeline.add_homoglyph_sanitizer()
+    elif attack == "bidi":
+        pipeline.add_bidi_sanitizer()
+    elif attack == "deletion":
+        pipeline.add_deletion_sanitizer()
+    elif attack == "invisible":
+        pipeline.add_invisible_sanitizer()
+
     with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(header)
-        writer.writerow(
-            [
-                impl_name,
-                length,
-                f"{pct:.1f}",
-                f"{time_s * 1000:.3f}",
-                f"{cpu_s * 1000:.3f}",
-            ]
-        )
+        attack_cls, impls = _get_attack_config(attack)
+        func = impls[impl_name]
+        for length in LENGTHS:
+            for pct in PERTURBATION_BUDGET_PERCENTAGES:
+                rss_deltas = []
+                rss_peaks = []
+                for run in range(runs):
+                    base_text = _make_text(length)
+                    perturbation_budget = max(1, int(length * pct))
+                    pert = attack_cls(perturbation_budget=perturbation_budget).perturb(
+                        base_text
+                    )
+                    rss_before = rss_bytes_linux()
+
+                    func(pert, pipeline)
+
+                    rss_after = rss_bytes_linux()
+                    rss_peak = peak_rss_bytes_linux()
+                    rss_delta = rss_after - rss_before
+                    rss_deltas.append(rss_delta)
+                    rss_peaks.append(rss_peak)
+
+                rss_delta_mean = statistics.mean(rss_deltas)
+                rss_peak_mean = statistics.mean(rss_peaks)
+                writer.writerow(
+                    [
+                        impl_name,
+                        length,
+                        f"{pct:.1f}",
+                        f"{rss_delta_mean / 1024:.3f}",
+                        f"{rss_peak_mean / 1024:.3f}",
+                    ]
+                )
+
+
+def _read_proc_status_kb(key: str) -> int:
+    with open("/proc/self/status", "r", encoding="utf-8") as f:
+        for line in f:
+            if line.startswith(key + ":"):
+                # e.g. "VmHWM:\t  12345 kB"
+                return int(line.split()[1])  # kB
+    raise KeyError(key)
+
+
+def rss_bytes_linux() -> int:
+    return _read_proc_status_kb("VmRSS")
+
+
+def peak_rss_bytes_linux() -> int:
+    return _read_proc_status_kb("VmHWM")
 
 
 if __name__ == "__main__":
@@ -150,9 +209,7 @@ if __name__ == "__main__":
         default="benchmark",
         help="benchmark = run all impls for attack; single = one impl",
     )
-    parser.add_argument("--length", type=int, default=1000)
-    parser.add_argument("--pct", type=float, default=0.1)
-    parser.add_argument("--runs", type=int, default=5)
+    parser.add_argument("--runs", type=int, default=50)
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument(
         "--attack",
@@ -172,8 +229,6 @@ if __name__ == "__main__":
     else:
         run_single(
             impl_name=args.impl,
-            length=args.length,
-            pct=args.pct,
             runs=args.runs,
             seed=args.seed,
             attack=args.attack,
